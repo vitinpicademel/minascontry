@@ -71,15 +71,21 @@ section{padding:6rem 0}
 .section-desc{color:var(--text-muted);font-size:1rem;max-width:520px;line-height:1.8}
 
 /* FEATURES */
-.features{background:var(--white)}
-.features-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:4rem}
-.feature-card{padding:2rem;border:1px solid var(--border);border-radius:8px;transition:all 0.3s;position:relative;overflow:hidden}
-.feature-card::before{content:'';position:absolute;top:0;left:0;width:3px;height:100%;background:var(--wine);transform:scaleY(0);transition:transform 0.3s;transform-origin:bottom}
-.feature-card:hover::before{transform:scaleY(1)}
-.feature-card:hover{border-color:var(--wine);box-shadow:0 4px 24px rgba(107,26,26,0.08)}
-.feature-icon{width:48px;height:48px;background:var(--cream);border-radius:8px;display:flex;align-items:center;justify-content:center;font-size:1.5rem;margin-bottom:1.5rem}
-.feature-title{font-family:'Playfair Display',serif;font-size:1.15rem;font-weight:600;color:var(--black);margin-bottom:0.5rem}
-.feature-desc{font-size:0.9rem;color:var(--text-muted);line-height:1.7}
+.features{background:#F8F3EC}
+.features-wrapper{display:grid;grid-template-columns:40% 1fr;gap:4rem;align-items:stretch}
+.features-left{background:#3A1A0A;border-radius:12px;padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.features-left::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);border-radius:50%;transform:translate(30%, -30%)}
+.features-left-num{font-family:'Playfair Display',serif;font-size:4.5rem;color:var(--gold);font-weight:700;line-height:1;margin-bottom:0.5rem}
+.features-left-label{font-size:1.05rem;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:2rem;font-weight:500;opacity:0.9}
+.features-left-desc{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.7;font-weight:300}
+.features-right{display:flex;flex-direction:column;justify-content:center}
+.feature-list-item{display:flex;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid #D4C5A9;align-items:flex-start}
+.feature-list-item:last-child{border-bottom:none;padding-bottom:0}
+.feature-list-item:first-child{padding-top:0}
+.feature-list-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-weight:600;min-width:36px;line-height:1.2}
+.feature-list-content{display:flex;flex-direction:column;gap:0.25rem}
+.feature-list-title{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;color:#1A1209}
+.feature-list-desc{font-family:'Inter',sans-serif;font-size:0.875rem;color:#7A6545;line-height:1.6}
 
 /* CATALOG */
 .catalog{background:var(--cream)}
@@ -226,9 +232,10 @@ td{padding:12px;border-bottom:1px solid #e6e6e6;font-size:0.85rem;color:rgba(0,0
 }
 
 @media(max-width:1024px){
+  .features-wrapper{grid-template-columns:1fr;gap:3rem}
+  .features-left{padding:3rem 2rem}
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:2rem}
   .hero-visual{display:none}
-  .features-grid{grid-template-columns:1fr 1fr}
   .about-grid{grid-template-columns:1fr}
   .about-visual{order:-1}
   .contact-grid{grid-template-columns:1fr}
@@ -300,40 +307,57 @@ td{padding:12px;border-bottom:1px solid #e6e6e6;font-size:0.85rem;color:rgba(0,0
 </section>
 
 <!-- FEATURES -->
-<section class="features">
+<section class="features" id="sobre">
   <div class="container">
-    <div class="section-eyebrow">Por que escolher a Minas Country</div>
-    <h2 class="section-title">Feito para durar,<br>pensado para o campo</h2>
-    <div class="features-grid">
-      <div class="feature-card">
-        <div class="feature-icon">🐄</div>
-        <div class="feature-title">Cabrestos para gado</div>
-        <div class="feature-desc">Peças robustas, testadas no manejo diário com bovinos de corte e leite. Couro curtido para resistir ao tempo e ao campo.</div>
+    <div class="features-wrapper">
+      <div class="features-left reveal">
+        <div class="features-left-num">15+</div>
+        <div class="features-left-label">anos de experiência</div>
+        <div class="features-left-desc">Fábrica familiar em Uberaba, Minas Gerais. Cada peça costurada à mão com couro bovino selecionado.</div>
       </div>
-      <div class="feature-card">
-        <div class="feature-icon">🐴</div>
-        <div class="feature-title">Cabrestos para cavalo</div>
-        <div class="feature-desc">Design que alia conforto e segurança ao animal. Acabamento refinado para uso em provas, exposições ou trabalho diário.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🤠</div>
-        <div class="feature-title">Selaria completa</div>
-        <div class="feature-desc">Selas, arreios e acessórios trabalhados em couro de alta qualidade. Do amador ao profissional, temos o equipamento certo.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">✋</div>
-        <div class="feature-title">100% artesanal</div>
-        <div class="feature-desc">Cada peça costurada e montada à mão por artesãos com décadas de experiência. Não há linha de montagem — só ofício.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">🚚</div>
-        <div class="feature-title">Enviamos para todo o Brasil</div>
-        <div class="feature-desc">Sua encomenda embalada com cuidado e despachada para qualquer estado. Rastreamento e entrega segura garantidos.</div>
-      </div>
-      <div class="feature-card">
-        <div class="feature-icon">💬</div>
-        <div class="feature-title">Atendimento direto</div>
-        <div class="feature-desc">Fale direto com quem fabrica. Tiramos medidas, fazemos sob encomenda e garantimos satisfação total com sua compra.</div>
+      <div class="features-right">
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">01</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Couro bovino curtido ao tanino</div>
+            <div class="feature-list-desc">Selecionado rigorosamente, sem concessões à qualidade</div>
+          </div>
+        </div>
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">02</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Fabricação 100% artesanal</div>
+            <div class="feature-list-desc">Cada peça costurada e montada à mão por artesãos experientes</div>
+          </div>
+        </div>
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">03</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Cabrestos para gado e cavalo</div>
+            <div class="feature-list-desc">Linha completa para diferentes necessidades do campo</div>
+          </div>
+        </div>
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">04</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Selaria e acessórios</div>
+            <div class="feature-list-desc">Arreios, selas e ferramentas para o manejo diário</div>
+          </div>
+        </div>
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">05</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Enviamos para todo o Brasil</div>
+            <div class="feature-list-desc">Embalagem reforçada e rastreamento garantido</div>
+          </div>
+        </div>
+        <div class="feature-list-item reveal">
+          <div class="feature-list-num">06</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Atendimento direto com o fabricante</div>
+            <div class="feature-list-desc">Fazemos sob encomenda e personalizamos peças</div>
+          </div>
+        </div>
       </div>
     </div>
   </div>

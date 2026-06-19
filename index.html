@@ -149,64 +149,70 @@ footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem
 .footer-admin-link:hover{color:var(--gold)}
 
 /* ======= ADMIN ======= */
-#admin-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.7);backdrop-filter:blur(4px);align-items:center;justify-content:center}
+#admin-overlay{display:none;position:fixed;inset:0;z-index:9999;background:rgba(0,0,0,0.6);backdrop-filter:blur(2px);align-items:center;justify-content:center}
 #admin-overlay.active{display:flex}
-.admin-modal{background:var(--white);border-radius:12px;width:90%;max-width:480px;padding:2.5rem;box-shadow:0 20px 60px rgba(0,0,0,0.3)}
-.admin-modal h2{font-family:'Playfair Display',serif;font-size:1.6rem;color:var(--black);margin-bottom:0.25rem}
-.admin-modal p{color:var(--text-muted);font-size:0.9rem;margin-bottom:2rem}
-.form-group{margin-bottom:1.25rem}
-.form-group label{display:block;font-size:0.8rem;font-weight:600;color:var(--text);margin-bottom:0.4rem;text-transform:uppercase;letter-spacing:0.5px}
-.form-group input,.form-group select,.form-group textarea{width:100%;padding:10px 14px;border:1.5px solid var(--border);border-radius:6px;font-size:0.9rem;font-family:'Inter',sans-serif;color:var(--text);background:var(--cream);transition:border 0.2s;outline:none}
-.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:var(--wine);background:var(--white)}
-.form-group textarea{resize:vertical;min-height:80px}
-.btn-login{width:100%;background:var(--wine);color:white;padding:12px;border:none;border-radius:6px;font-size:0.95rem;font-weight:600;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
-.btn-login:hover{background:var(--wine-light)}
+.admin-modal{background:#ffffff;border-radius:6px;width:90%;max-width:400px;padding:2.5rem;box-shadow:0 10px 40px rgba(0,0,0,0.15);font-family:'Inter',sans-serif}
+.admin-modal h2{font-size:1.4rem;font-weight:600;color:rgba(0,0,0,0.9);margin-bottom:0.25rem}
+.admin-modal p{color:rgba(0,0,0,0.5);font-size:0.9rem;margin-bottom:2rem}
+.form-group{margin-bottom:1.25rem;font-family:'Inter',sans-serif}
+.form-group label{display:block;font-size:0.8rem;font-weight:600;color:rgba(0,0,0,0.8);margin-bottom:0.4rem;text-transform:none}
+.form-group input,.form-group select,.form-group textarea{width:100%;padding:12px;border:1px solid #cccccc;border-radius:4px;font-size:0.9rem;font-family:'Inter',sans-serif;color:rgba(0,0,0,0.9);background:#ffffff;transition:border 0.2s,box-shadow 0.2s;outline:none}
+.form-group input:focus,.form-group select:focus,.form-group textarea:focus{border-color:#3483fa;box-shadow:0 0 0 2px rgba(52,131,250,0.2)}
+.form-group textarea{resize:vertical;min-height:100px}
+.btn-login{width:100%;background:#3483fa;color:white;padding:14px;border:none;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;transition:background 0.2s;font-family:'Inter',sans-serif}
+.btn-login:hover{background:#2968c8}
 .login-error{color:#C0392B;font-size:0.85rem;margin-top:0.75rem;display:none}
 
 /* ADMIN PANEL */
-#admin-panel{display:none;position:fixed;inset:0;z-index:9998;background:var(--cream);overflow-y:auto}
+#admin-panel{display:none;position:fixed;inset:0;z-index:9998;background:#ebebeb;overflow-y:auto;font-family:'Inter',sans-serif}
 #admin-panel.active{display:block}
-.admin-header{background:var(--wine-dark);color:white;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10}
-.admin-header h1{font-family:'Playfair Display',serif;font-size:1.2rem}
+.admin-header{background:#fff159;color:rgba(0,0,0,0.9);padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;position:sticky;top:0;z-index:10;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.admin-header h1{font-family:'Inter',sans-serif;font-size:1.2rem;font-weight:600}
 .admin-header-actions{display:flex;gap:1rem;align-items:center}
-.btn-admin-back{background:rgba(255,255,255,0.15);color:white;padding:7px 16px;border:none;border-radius:5px;cursor:pointer;font-size:0.85rem;font-family:'Inter',sans-serif;transition:background 0.2s}
-.btn-admin-back:hover{background:rgba(255,255,255,0.25)}
-.btn-danger{background:#C0392B;color:white;padding:7px 16px;border:none;border-radius:5px;cursor:pointer;font-size:0.85rem;font-family:'Inter',sans-serif}
+.btn-admin-back{background:#3483fa;color:white;padding:8px 20px;border:none;border-radius:4px;cursor:pointer;font-size:0.9rem;font-weight:500;font-family:'Inter',sans-serif;transition:background 0.2s}
+.btn-admin-back:hover{background:#2968c8}
+.btn-danger{background:transparent;color:#C0392B;padding:8px 16px;border:none;cursor:pointer;font-size:0.9rem;font-weight:500;font-family:'Inter',sans-serif}
+.btn-danger:hover{text-decoration:underline}
 .admin-body{max-width:1100px;margin:0 auto;padding:2rem}
-.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2.5rem}
-.admin-stat{background:white;border:1px solid var(--border);border-radius:8px;padding:1.25rem}
-.admin-stat-num{font-size:1.8rem;font-weight:700;color:var(--wine);font-family:'Playfair Display',serif}
-.admin-stat-label{font-size:0.75rem;color:var(--text-muted);text-transform:uppercase;letter-spacing:1px;margin-top:0.25rem}
-.admin-grid{display:grid;grid-template-columns:380px 1fr;gap:2rem;align-items:start}
-.admin-form-card{background:white;border:1px solid var(--border);border-radius:10px;padding:1.5rem;position:sticky;top:90px}
-.admin-form-card h3{font-family:'Playfair Display',serif;font-size:1.1rem;margin-bottom:1.25rem;padding-bottom:1rem;border-bottom:1px solid var(--border)}
-.btn-save{width:100%;background:var(--wine);color:white;padding:12px;border:none;border-radius:6px;font-size:0.9rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:0.5rem}
-.btn-save:hover{background:var(--wine-light)}
-.btn-cancel-edit{width:100%;background:transparent;color:var(--text-muted);padding:10px;border:1px solid var(--border);border-radius:6px;font-size:0.85rem;cursor:pointer;font-family:'Inter',sans-serif;margin-top:0.5rem;display:none}
-.products-table{background:white;border:1px solid var(--border);border-radius:10px;overflow:hidden}
-.products-table h3{font-family:'Playfair Display',serif;font-size:1.1rem;padding:1.25rem 1.5rem;border-bottom:1px solid var(--border)}
+.admin-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem}
+.admin-stat{background:#ffffff;border-radius:6px;padding:1.5rem;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.admin-stat-num{font-size:2rem;font-weight:600;color:rgba(0,0,0,0.9);line-height:1.1}
+.admin-stat-label{font-size:0.8rem;color:rgba(0,0,0,0.5);font-weight:500;margin-top:0.5rem;text-transform:uppercase}
+.admin-grid{display:grid;grid-template-columns:400px 1fr;gap:2rem;align-items:start}
+.admin-form-card{background:#ffffff;border-radius:6px;padding:1.5rem;position:sticky;top:90px;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.admin-form-card h3{font-size:1.2rem;font-weight:600;margin-bottom:1.5rem;padding-bottom:1rem;border-bottom:1px solid #e6e6e6;color:rgba(0,0,0,0.9)}
+.btn-save{width:100%;background:#3483fa;color:white;padding:14px;border:none;border-radius:4px;font-size:1rem;font-weight:600;cursor:pointer;font-family:'Inter',sans-serif;transition:background 0.2s;margin-top:1rem}
+.btn-save:hover{background:#2968c8}
+.btn-cancel-edit{width:100%;background:transparent;color:rgba(0,0,0,0.6);padding:14px;border:1px solid #cccccc;border-radius:4px;font-size:0.95rem;font-weight:500;cursor:pointer;font-family:'Inter',sans-serif;margin-top:0.5rem;display:none}
+.products-table{background:#ffffff;border-radius:6px;overflow:hidden;box-shadow:0 1px 2px rgba(0,0,0,0.1)}
+.products-table h3{font-size:1.2rem;font-weight:600;padding:1.5rem;border-bottom:1px solid #e6e6e6;color:rgba(0,0,0,0.9)}
 .table-wrap{overflow-x:auto}
-table{width:100%;border-collapse:collapse}
-th{background:var(--cream);text-align:left;padding:10px 16px;font-size:0.75rem;text-transform:uppercase;letter-spacing:1px;color:var(--text-muted);font-weight:600;white-space:nowrap}
-td{padding:12px 16px;border-top:1px solid var(--border);font-size:0.85rem;vertical-align:middle}
-.table-product-img{width:44px;height:44px;border-radius:6px;object-fit:cover;background:var(--cream-dark);display:flex;align-items:center;justify-content:center;font-size:1.2rem}
-.table-product-img img{width:44px;height:44px;border-radius:6px;object-fit:cover}
-.badge-cat{background:var(--cream);color:var(--wine);padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600;white-space:nowrap}
-.badge-active{background:#E8F5E9;color:#2E7D32;padding:3px 10px;border-radius:100px;font-size:0.72px;font-size:0.72rem;font-weight:600}
-.badge-inactive{background:#FFF3E0;color:#E65100;padding:3px 10px;border-radius:100px;font-size:0.72rem;font-weight:600}
-.table-actions{display:flex;gap:6px;white-space:nowrap}
-.btn-edit{background:var(--cream);color:var(--wine);border:1px solid var(--border);padding:5px 12px;border-radius:4px;font-size:0.78rem;cursor:pointer;font-family:'Inter',sans-serif;font-weight:600;transition:all 0.2s}
-.btn-edit:hover{background:var(--wine);color:white;border-color:var(--wine)}
-.btn-toggle{background:var(--cream);color:var(--text-muted);border:1px solid var(--border);padding:5px 12px;border-radius:4px;font-size:0.78rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
-.btn-toggle:hover{background:var(--cream-dark)}
-.btn-del{background:#FFF0F0;color:#C0392B;border:1px solid #FFCDD2;padding:5px 12px;border-radius:4px;font-size:0.78rem;cursor:pointer;font-family:'Inter',sans-serif;transition:all 0.2s}
-.btn-del:hover{background:#C0392B;color:white}
-.toast{position:fixed;bottom:2rem;right:2rem;background:var(--black);color:white;padding:12px 20px;border-radius:8px;font-size:0.85rem;z-index:99999;transform:translateY(20px);opacity:0;transition:all 0.3s;pointer-events:none}
+table{width:100%;border-collapse:collapse;font-family:'Inter',sans-serif}
+th{background:#f5f5f5;text-align:left;padding:12px 16px;font-size:0.75rem;text-transform:uppercase;color:rgba(0,0,0,0.5);font-weight:600;border-bottom:1px solid #e6e6e6}
+td{padding:16px;border-bottom:1px solid #e6e6e6;font-size:0.9rem;color:rgba(0,0,0,0.8);vertical-align:middle}
+.table-product-img{width:48px;height:48px;border-radius:4px;object-fit:cover;background:#f5f5f5;display:flex;align-items:center;justify-content:center;font-size:1.2rem;border:1px solid #e6e6e6}
+.table-product-img img{width:48px;height:48px;border-radius:4px;object-fit:cover}
+.badge-cat{background:#f5f5f5;color:rgba(0,0,0,0.7);padding:4px 10px;border-radius:4px;font-size:0.75rem;font-weight:500;white-space:nowrap}
+.badge-active{background:#00a650;color:white;padding:4px 10px;border-radius:100px;font-size:0.75rem;font-weight:600}
+.badge-inactive{background:#f5f5f5;color:rgba(0,0,0,0.5);padding:4px 10px;border-radius:100px;font-size:0.75rem;font-weight:600}
+.table-actions{display:flex;gap:8px;white-space:nowrap}
+.btn-edit{background:transparent;color:#3483fa;border:none;padding:6px;font-size:0.9rem;cursor:pointer;font-family:'Inter',sans-serif;font-weight:500}
+.btn-edit:hover{text-decoration:underline}
+.btn-toggle{background:transparent;color:rgba(0,0,0,0.6);border:none;padding:6px;font-size:0.9rem;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-toggle:hover{text-decoration:underline}
+.btn-del{background:transparent;color:#C0392B;border:none;padding:6px;font-size:0.9rem;cursor:pointer;font-family:'Inter',sans-serif}
+.btn-del:hover{text-decoration:underline}
+.toast{position:fixed;bottom:2rem;right:2rem;background:rgba(0,0,0,0.8);color:white;padding:14px 24px;border-radius:4px;font-size:0.95rem;z-index:99999;transform:translateY(20px);opacity:0;transition:all 0.3s;pointer-events:none;font-weight:500;box-shadow:0 4px 12px rgba(0,0,0,0.15)}
 .toast.show{transform:translateY(0);opacity:1}
-.form-row{display:grid;grid-template-columns:1fr 1fr;gap:0.75rem}
-.toggle-active input[type="checkbox"]{width:36px;height:20px;accent-color:var(--wine);cursor:pointer}
-.toggle-active{display:flex;align-items:center;gap:10px;margin-top:0.5rem}
-.toggle-active label{font-size:0.85rem;color:var(--text-muted);cursor:pointer;margin:0;text-transform:none;letter-spacing:0}
+.form-row{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.toggle-active input[type="checkbox"]{width:20px;height:20px;accent-color:#3483fa;cursor:pointer}
+.toggle-active{display:flex;align-items:center;gap:10px;margin-top:1rem;padding:1rem;background:#f5f5f5;border-radius:4px}
+.toggle-active label{font-size:0.9rem;color:rgba(0,0,0,0.8);cursor:pointer;margin:0;font-weight:500}
+.upload-btn-wrapper {position: relative; overflow: hidden; display: inline-block; width:100%;}
+.upload-btn-wrapper input[type=file] {font-size: 100px; position: absolute; left: 0; top: 0; opacity: 0; cursor: pointer; height:100%; width:100%;}
+.upload-btn {border: 2px dashed #cccccc; color: rgba(0,0,0,0.6); background-color: #f9f9f9; padding: 20px; border-radius: 4px; font-size: 0.9rem; font-weight: 500; text-align: center; width: 100%; transition:all 0.2s; display:flex; flex-direction:column; align-items:center; gap:8px;}
+.upload-btn:hover {border-color: #3483fa; background-color: rgba(52,131,250,0.05); color:#3483fa;}
+.upload-btn svg {width:24px; height:24px; fill:currentColor;}
 
 @media(max-width:900px){
   .hero-inner{grid-template-columns:1fr;text-align:center;gap:2rem}
@@ -505,11 +511,17 @@ td{padding:12px 16px;border-top:1px solid var(--border);font-size:0.85rem;vertic
           </div>
           <div class="form-group" style="grid-column: 1 / -1;">
             <label>Imagem do produto</label>
-            <input type="file" id="f-img-file" accept="image/*" onchange="previewImage(event)" style="padding: 6px; background: white; cursor: pointer;">
+            <div class="upload-btn-wrapper" id="upload-wrapper">
+              <div class="upload-btn">
+                <svg viewBox="0 0 24 24"><path d="M19 13h-6v6h-2v-6H5v-2h6V5h2v6h6v2z"/></svg>
+                <span>Clique ou arraste a imagem aqui</span>
+              </div>
+              <input type="file" id="f-img-file" accept="image/*" onchange="previewImage(event)">
+            </div>
             <input type="hidden" id="f-img-base64">
-            <div id="img-preview-container" style="display:none; margin-top:10px; position:relative; width:80px; height:80px;">
-               <img id="img-preview" src="" style="width:100%; height:100%; object-fit:cover; border-radius:6px; border:1px solid var(--border);">
-               <button type="button" onclick="removeImage()" style="position:absolute; top:-8px; right:-8px; background:#C0392B; color:white; border:none; border-radius:50%; width:22px; height:22px; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">×</button>
+            <div id="img-preview-container" style="display:none; margin-top:10px; position:relative; width:100px; height:100px;">
+               <img id="img-preview" src="" style="width:100%; height:100%; object-fit:cover; border-radius:4px; border:1px solid #cccccc;">
+               <button type="button" onclick="removeImage()" style="position:absolute; top:-8px; right:-8px; background:#C0392B; color:white; border:none; border-radius:50%; width:24px; height:24px; cursor:pointer; font-size:14px; display:flex; align-items:center; justify-content:center; box-shadow: 0 2px 5px rgba(0,0,0,0.2);">×</button>
             </div>
           </div>
         </div>
@@ -705,6 +717,7 @@ function editProduct(id){
   if(base64){
      document.getElementById('img-preview').src = base64;
      document.getElementById('img-preview-container').style.display = 'block';
+     document.getElementById('upload-wrapper').style.display = 'none';
   } else {
      removeImage();
   }
@@ -759,6 +772,7 @@ function previewImage(event) {
     document.getElementById('f-img-base64').value = base64;
     document.getElementById('img-preview').src = base64;
     document.getElementById('img-preview-container').style.display = 'block';
+    document.getElementById('upload-wrapper').style.display = 'none';
   }
   reader.readAsDataURL(file);
 }
@@ -767,6 +781,7 @@ function removeImage() {
   if(fileInput) fileInput.value = '';
   document.getElementById('f-img-base64').value = '';
   document.getElementById('img-preview-container').style.display = 'none';
+  document.getElementById('upload-wrapper').style.display = 'inline-block';
 }
 
 function toggleMenu(){}

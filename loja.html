@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Catálogo - Minas Country</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+
+    <header>
+        <div class="container header-content">
+            <div class="logo">
+                <a href="index.html"><img src="images/logo.png" alt="Minas Country"></a>
+            </div>
+            <nav class="nav-links">
+                <a href="index.html">Home</a>
+                <a href="loja.html" style="color: var(--color-secondary);">Loja</a>
+                <a href="contato.html">Contato</a>
+            </nav>
+        </div>
+    </header>
+
+    <div style="background-color: var(--color-text-dark); color: white; padding: 40px 0; text-align: center;">
+        <h1 style="color: var(--color-secondary);">Nossa Coleção</h1>
+        <p>Explore nossa linha completa de produtos artesanais.</p>
+    </div>
+
+    <section class="container mt-5 mb-5">
+        <div style="display: flex; justify-content: center; gap: 15px; margin-bottom: 30px; flex-wrap: wrap;">
+            <button class="btn btn-outline filter-btn" data-filter="todos" style="background-color: var(--color-secondary); color: var(--color-text-dark);">Todos</button>
+            <button class="btn btn-outline filter-btn" data-filter="gado">Cabrestos Gado</button>
+            <button class="btn btn-outline filter-btn" data-filter="cavalo">Cabrestos Cavalo</button>
+            <button class="btn btn-outline filter-btn" data-filter="selaria">Selaria</button>
+        </div>
+
+        <div id="loja-grid" class="product-grid">
+            <!-- Produtos injetados via JS -->
+        </div>
+    </section>
+
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <img src="images/logo.png" alt="Logo" style="height: 50px; margin-bottom: 20px; filter: brightness(0) invert(1);">
+                    <p>Fábrica mineira especializada em cabrestos e selaria premium.</p>
+                </div>
+                <div class="footer-section">
+                    <h3>Links Úteis</h3>
+                    <a href="index.html">Home</a>
+                    <a href="loja.html">Loja</a>
+                    <a href="contato.html">Contato</a>
+                    <a href="admin.html">Acesso Restrito</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <script src="js/data.js"></script>
+    <script src="js/script.js"></script>
+</body>
+</html>

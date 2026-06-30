@@ -303,7 +303,7 @@ td{padding:16px 20px;border-bottom:1px solid var(--border);font-size:0.95rem;col
 
 
 /* ABOUT HERO */
-.about-hero{margin-top:150px;background:var(--wine-dark);color:var(--white);padding:8rem 2rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.1)}
+.about-hero{margin-top:136px;background:var(--wine-dark);color:var(--white);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.1)}
 @media(max-width: 768px){ .about-hero{margin-top:110px;padding:5rem 1.5rem;} }
 .about-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
 .about-hero-eyebrow{color:var(--gold);font-family:'Manrope',sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:5px;font-weight:800;margin-bottom:1.5rem;display:inline-block}
@@ -311,11 +311,11 @@ td{padding:16px 20px;border-bottom:1px solid var(--border);font-size:0.95rem;col
 .about-hero-desc{font-family:'Manrope',sans-serif;font-size:1.15rem;color:rgba(255,255,255,0.8);font-weight:400;line-height:1.8;max-width:550px;margin:0 auto}
 
 /* INSTITUTIONAL STORY */
-.story-section{background:var(--cream);padding:8rem 0;position:relative;border-top:1px solid var(--border)}
+.story-section{background:var(--cream-dark);padding:6rem 0;position:relative;border-top:1px solid var(--border)}
 .story-container{max-width:1400px;margin:0 auto;padding:0 2rem}
 .story-item{position:relative;padding:5rem 0;border-bottom:1px solid var(--border)}
 .story-item:last-child{border-bottom:none}
-.story-watermark{position:absolute;left:-5%;top:15%;font-family:'Fraunces',serif;font-size:clamp(6rem,12vw,14rem);color:var(--border);opacity:0.3;font-weight:700;line-height:1;z-index:1;user-select:none;letter-spacing:-4px}
+.story-watermark{position:absolute;left:50%;top:50%;transform:translate(-50%, -50%);font-family:'Fraunces',serif;font-size:clamp(10rem,15vw,22rem);color:var(--black);opacity:0.04;font-weight:700;line-height:1;z-index:0;user-select:none;letter-spacing:-4px; pointer-events:none; width:100%; text-align:center;}
 .story-content{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 1fr;gap:6rem;align-items:center}
 @media(max-width:991px){
   .story-content{grid-template-columns:1fr;gap:3rem}

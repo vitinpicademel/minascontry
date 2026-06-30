@@ -43,45 +43,49 @@ section{padding:6rem 0}
 .section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:1rem}
 .section-desc{color:var(--text-muted);font-size:1rem;max-width:520px;line-height:1.8}
 
-/* FEATURES */
-.features{background:#F8F3EC; margin-top: 140px;}
-@media(max-width: 768px){ .features{margin-top: 100px;} }
-.features-wrapper{display:grid;grid-template-columns:40% 1fr;gap:4rem;align-items:stretch}
-.features-left{background:#3A1A0A;border-radius:12px;padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
-.features-left::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);border-radius:50%;transform:translate(30%, -30%)}
-.features-left-num{font-family:'Playfair Display',serif;font-size:4.5rem;color:var(--gold);font-weight:700;line-height:1;margin-bottom:0.5rem}
-.features-left-label{font-size:1.05rem;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:2rem;font-weight:500;opacity:0.9}
-.features-left-desc{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.7;font-weight:300}
-.features-right{display:flex;flex-direction:column;justify-content:center}
-.feature-list-item{display:flex;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid #D4C5A9;align-items:flex-start}
-.feature-list-item:last-child{border-bottom:none;padding-bottom:0}
-.feature-list-item:first-child{padding-top:0}
-.feature-list-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-weight:600;min-width:36px;line-height:1.2}
-.feature-list-content{display:flex;flex-direction:column;gap:0.25rem}
-.feature-list-title{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;color:#1A1209}
-.feature-list-desc{font-family:'Inter',sans-serif;font-size:0.875rem;color:#7A6545;line-height:1.6}
+/* ABOUT HERO */
+.about-hero{margin-top:140px;background:linear-gradient(135deg, var(--wine-dark) 0%, #2A0A0A 100%);color:var(--white);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
+@media(max-width: 768px){ .about-hero{margin-top:100px;padding:4rem 1.5rem;} }
+.about-hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 60%);z-index:1}
+.about-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
+.about-hero-eyebrow{color:var(--gold);font-size:0.85rem;text-transform:uppercase;letter-spacing:4px;font-weight:600;margin-bottom:1rem;display:inline-block;border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:5px}
+.about-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin-bottom:1.5rem;line-height:1.1}
+.about-hero-desc{font-size:1.1rem;color:rgba(255,255,255,0.8);font-weight:300;line-height:1.8;max-width:600px;margin:0 auto}
 
-/* ABOUT */
-.about{background:var(--wine-dark);color:var(--white)}
-.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
-.about .section-eyebrow{color:var(--gold)}
-.about .section-title{color:var(--white)}
-.about-desc{color:rgba(255,255,255,0.7);line-height:1.9;margin-top:1rem;font-size:0.95rem}
-.about-list{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
-.about-item{display:flex;align-items:flex-start;gap:12px}
-.about-item-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0}
-.about-item-text{color:rgba(255,255,255,0.75);font-size:0.9rem}
-.about-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
-.about-stat-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:1.5rem;text-align:center}
-.about-stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
-.about-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;text-transform:uppercase;letter-spacing:1px}
-
-@media(max-width:1024px){
-  .features-wrapper{grid-template-columns:1fr;gap:3rem}
-  .features-left{padding:3rem 2rem}
-  .about-grid{grid-template-columns:1fr}
-  .about-visual{order:-1}
+/* OUR STORY TIMELINE */
+.story-section{background:var(--cream);padding:6rem 0;position:relative;overflow:hidden}
+.story-grid{display:grid;grid-template-columns:1fr;gap:4rem;position:relative;max-width:1000px;margin:0 auto}
+.story-grid::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--border);transform:translateX(-50%);display:none;border-radius:2px}
+@media(min-width:992px){
+  .story-grid::before{display:block}
+  .story-item{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
+  .story-item:nth-child(even) .story-content{order:1;text-align:right}
+  .story-item:nth-child(even) .story-visual{order:2}
+  .story-item:nth-child(odd) .story-content{order:2;text-align:left}
+  .story-item:nth-child(odd) .story-visual{order:1}
 }
+.story-visual{display:flex;align-items:center;justify-content:center;position:relative}
+.story-year-badge{background:var(--wine);color:var(--gold);font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;width:130px;height:130px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(107,26,26,0.2);position:relative;z-index:2;border:6px solid var(--cream);text-align:center}
+.story-year-badge::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px dashed rgba(201,168,76,0.4);animation:spin 25s linear infinite}
+@keyframes spin{ 100%{transform:rotate(360deg)} }
+.story-content{background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.04);position:relative;z-index:2;border:1px solid #f0f0f0}
+.story-content h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--wine-dark);margin-bottom:1rem;line-height:1.2}
+.story-content p{color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin:0}
+@media(max-width:991px){
+  .story-content{text-align:center;padding:2rem}
+}
+
+/* LEGACY CALLOUT */
+.legacy-callout{background:var(--wine-dark);color:var(--white);padding:7rem 0;text-align:center;position:relative;overflow:hidden}
+.legacy-callout::before{content:'';position:absolute;inset:0;background:url('images/logo.png') center/contain no-repeat;opacity:0.03;transform:scale(1.5)}
+.legacy-callout-inner{max-width:900px;margin:0 auto;position:relative;z-index:2}
+.legacy-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--gold);line-height:1.5;margin-bottom:2.5rem;font-style:italic}
+.legacy-author{font-size:0.95rem;text-transform:uppercase;letter-spacing:3px;color:rgba(255,255,255,0.7);font-weight:600;display:flex;align-items:center;justify-content:center;gap:15px}
+.legacy-author::before, .legacy-author::after{content:'';display:block;width:40px;height:1px;background:rgba(255,255,255,0.2)}
+
+/* SCROLL FADE ANIMATION */
+.reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
+.reveal.active { opacity: 1; transform: translateY(0); }
 
 /* FOOTER */
 footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem}
@@ -96,6 +100,12 @@ footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem
 .footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
 .footer-copy{font-size:0.8rem}
 @media(max-width:1024px){.footer-grid{grid-template-columns:1fr}}
+
+/* FLOATING WPP */
+.floating-wpp{position:fixed;bottom:30px;right:30px;width:60px;height:60px;background:#25D366;color:white;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 4px 15px rgba(37,211,102,0.4);z-index:9999;transition:transform 0.2s;}
+.floating-wpp svg{width:35px;height:35px;fill:currentColor;}
+.floating-wpp:hover{transform:scale(1.1);}
+@media(max-width:768px){.floating-wpp{bottom:20px;right:20px;width:50px;height:50px;}.floating-wpp svg{width:30px;height:30px;}}
 </style>
 </head>
 <body>
@@ -140,85 +150,65 @@ footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem
   </div>
 </nav>
 
-<!-- FEATURES -->
-<section class="features">
+<!-- HERO DA PÁGINA SOBRE -->
+<header class="about-hero">
+  <div class="about-hero-content reveal">
+    <span class="about-hero-eyebrow">Tradição & Qualidade</span>
+    <h1 class="about-hero-title">Nossa História</h1>
+    <p class="about-hero-desc">Conheça a trajetória da Ponto Country, uma marca construída com amor ao campo, dedicação artesanal e respeito aos nossos clientes há gerações.</p>
+  </div>
+</header>
+
+<!-- STORY -->
+<section class="story-section">
   <div class="container">
-    <div class="features-wrapper">
-      <div class="features-left">
-        <div class="features-left-num">15+</div>
-        <div class="features-left-label">anos de experiência</div>
-        <div class="features-left-desc">Fábrica familiar em Uberaba, Minas Gerais. Cada peça costurada à mão com couro bovino selecionado.</div>
-      </div>
-      <div class="features-right">
-        <div class="feature-list-item">
-          <div class="feature-list-num">01</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Couro bovino curtido ao tanino</div>
-            <div class="feature-list-desc">Selecionado rigorosamente, sem concessões à qualidade</div>
-          </div>
+    <div class="story-grid">
+      
+      <!-- Bloco 1 -->
+      <div class="story-item reveal">
+        <div class="story-visual">
+          <div class="story-year-badge">1968</div>
         </div>
-        <div class="feature-list-item">
-          <div class="feature-list-num">02</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Fabricação 100% artesanal</div>
-            <div class="feature-list-desc">Cada peça costurada e montada à mão por artesãos experientes</div>
-          </div>
-        </div>
-        <div class="feature-list-item">
-          <div class="feature-list-num">03</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Cabrestos para gado e cavalo</div>
-            <div class="feature-list-desc">Linha completa para diferentes necessidades do campo</div>
-          </div>
-        </div>
-        <div class="feature-list-item">
-          <div class="feature-list-num">04</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Selaria e acessórios</div>
-            <div class="feature-list-desc">Arreios, selas e ferramentas para o manejo diário</div>
-          </div>
-        </div>
-        <div class="feature-list-item">
-          <div class="feature-list-num">05</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Enviamos para todo o Brasil</div>
-            <div class="feature-list-desc">Embalagem reforçada e rastreamento garantido</div>
-          </div>
-        </div>
-        <div class="feature-list-item">
-          <div class="feature-list-num">06</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Atendimento direto com o fabricante</div>
-            <div class="feature-list-desc">Fazemos sob encomenda e personalizamos peças</div>
-          </div>
+        <div class="story-content">
+          <h3>O Início de Tudo</h3>
+          <p>Desde 1968, a Ponto Country atua na fabricação de cabrestos para bovinos e equinos, consolidando-se como referência em qualidade e tradição no setor.</p>
         </div>
       </div>
+
+      <!-- Bloco 2 -->
+      <div class="story-item reveal">
+        <div class="story-visual">
+          <div class="story-year-badge" style="font-size:1.8rem">Raízes</div>
+        </div>
+        <div class="story-content">
+          <h3>Simplicidade e Dedicação</h3>
+          <p>Fundada por Carmelito e sua esposa, Teresinha, a empresa teve início de forma simples e dedicada. Com uma bicicleta, Carmelito percorria as cidades da região, levando produtos exclusivos e diferenciados aos fazendeiros locais.</p>
+        </div>
+      </div>
+
+      <!-- Bloco 3 -->
+      <div class="story-item reveal">
+        <div class="story-visual">
+          <div class="story-year-badge" style="font-size:1.8rem">Ouro</div>
+        </div>
+        <div class="story-content">
+          <h3>Evolução e Reconhecimento</h3>
+          <p>Ao longo dos anos, a Ponto Country evoluiu e desenvolveu o cabresto para exposição, um produto personalizado que conquistou reconhecimento nacional e internacional pela sua excelência, acabamento e qualidade.</p>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about">
+<!-- LEGACY CALLOUT -->
+<section class="legacy-callout">
   <div class="container">
-    <div class="about-grid">
-      <div>
-        <div class="section-eyebrow">Quem somos</div>
-        <h2 class="section-title">Tradição mineira,<br>qualidade nacional</h2>
-        <p class="about-desc">A Minas Country nasceu de uma paixão pelo campo e pelo trabalho bem feito. Somos uma loja e fábrica familiar localizada em Uberaba, Minas Gerais, especializados em artigos country e de selaria.</p>
-        <p class="about-desc" style="margin-top:1rem">Cada peça que sai daqui carrega o respeito que temos pelos animais e pela tradição do artesanato em couro. Trabalhamos com couro bovino curtido ao tanino, escolhido a dedo, sem concessões à qualidade.</p>
-        <div class="about-list">
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Localizada na Rua São João Del Rei, 220 - Parque das Américas, Uberaba - MG</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Peças sob medida e personalizadas com seu logotipo ou nome</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Entregamos para todo o Brasil com embalagem reforçada</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Garantia de qualidade em todas as peças fabricadas</div></div>
-        </div>
+    <div class="legacy-callout-inner reveal">
+      <div class="legacy-quote">
+        "Atualmente, a empresa é administrada pelos filhos dos fundadores, que mantêm vivos os valores construídos ao longo de décadas: tradição, transparência, honestidade e compromisso com a qualidade. Com respeito e dedicação, a Ponto Country continua valorizando a confiança de seus clientes, que prestigiam a marca há gerações."
       </div>
-      <div class="about-visual">
-        <div class="about-stat-card"><div class="about-stat-num">15+</div><div class="about-stat-label">Anos de experiência</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">100%</div><div class="about-stat-label">Couro natural</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">MG</div><div class="about-stat-label">Feito em Minas</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">BR</div><div class="about-stat-label">Envio nacional</div></div>
-      </div>
+      <div class="legacy-author">A Família Ponto Country</div>
     </div>
   </div>
 </section>
@@ -243,5 +233,32 @@ footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem
   </div>
 </footer>
 
+<a href="https://wa.me/5534988756121?text=Olá! Gostaria de falar sobre os produtos da Minas Country." target="_blank" class="floating-wpp" title="Fale conosco no WhatsApp">
+  <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+</a>
 </body>
+<script>
+function initScrollAnimations() {
+  const elements = document.querySelectorAll('.reveal');
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('active');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: "0px 0px -50px 0px" });
+  elements.forEach(r => observer.observe(r));
+}
+document.addEventListener('DOMContentLoaded', initScrollAnimations);
+
+function toggleMenu() {
+  const cat = document.querySelector('.nav-categories');
+  if (cat.style.display === 'block' || cat.style.display === '') {
+    cat.style.display = 'none';
+  } else {
+    cat.style.display = 'block';
+  }
+}
+</script>
 </html>

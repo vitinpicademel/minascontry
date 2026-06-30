@@ -44,44 +44,37 @@ section{padding:6rem 0}
 .section-desc{color:var(--text-muted);font-size:1rem;max-width:520px;line-height:1.8}
 
 /* ABOUT HERO */
-.about-hero{margin-top:140px;background:linear-gradient(135deg, var(--wine-dark) 0%, #2A0A0A 100%);color:var(--white);padding:6rem 2rem;text-align:center;position:relative;overflow:hidden}
-@media(max-width: 768px){ .about-hero{margin-top:100px;padding:4rem 1.5rem;} }
-.about-hero::before{content:'';position:absolute;top:-50%;left:-50%;width:200%;height:200%;background:radial-gradient(circle, rgba(201,168,76,0.05) 0%, transparent 60%);z-index:1}
+.about-hero{margin-top:140px;background:var(--wine-dark);color:var(--white);padding:8rem 2rem;text-align:center;position:relative;overflow:hidden;border-bottom:1px solid rgba(255,255,255,0.1)}
+@media(max-width: 768px){ .about-hero{margin-top:100px;padding:5rem 1.5rem;} }
+.about-hero::before{content:'';position:absolute;inset:0;background:url('images/logo.png') center/cover no-repeat;opacity:0.02;transform:scale(1.2)}
 .about-hero-content{position:relative;z-index:2;max-width:800px;margin:0 auto}
-.about-hero-eyebrow{color:var(--gold);font-size:0.85rem;text-transform:uppercase;letter-spacing:4px;font-weight:600;margin-bottom:1rem;display:inline-block;border-bottom:1px solid rgba(201,168,76,0.3);padding-bottom:5px}
-.about-hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);font-weight:700;margin-bottom:1.5rem;line-height:1.1}
-.about-hero-desc{font-size:1.1rem;color:rgba(255,255,255,0.8);font-weight:300;line-height:1.8;max-width:600px;margin:0 auto}
+.about-hero-eyebrow{color:var(--gold);font-family:'Inter',sans-serif;font-size:0.75rem;text-transform:uppercase;letter-spacing:5px;font-weight:500;margin-bottom:1.5rem;display:inline-block}
+.about-hero-title{font-family:'Playfair Display',serif;font-size:clamp(3rem,6vw,4.5rem);font-weight:400;margin-bottom:1.5rem;line-height:1.1;letter-spacing:-1px}
+.about-hero-desc{font-family:'Inter',sans-serif;font-size:1.15rem;color:rgba(255,255,255,0.75);font-weight:300;line-height:1.8;max-width:550px;margin:0 auto}
 
-/* OUR STORY TIMELINE */
-.story-section{background:var(--cream);padding:6rem 0;position:relative;overflow:hidden}
-.story-grid{display:grid;grid-template-columns:1fr;gap:4rem;position:relative;max-width:1000px;margin:0 auto}
-.story-grid::before{content:'';position:absolute;left:50%;top:0;bottom:0;width:2px;background:var(--border);transform:translateX(-50%);display:none;border-radius:2px}
-@media(min-width:992px){
-  .story-grid::before{display:block}
-  .story-item{display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center}
-  .story-item:nth-child(even) .story-content{order:1;text-align:right}
-  .story-item:nth-child(even) .story-visual{order:2}
-  .story-item:nth-child(odd) .story-content{order:2;text-align:left}
-  .story-item:nth-child(odd) .story-visual{order:1}
-}
-.story-visual{display:flex;align-items:center;justify-content:center;position:relative}
-.story-year-badge{background:var(--wine);color:var(--gold);font-family:'Playfair Display',serif;font-size:2.5rem;font-weight:700;width:130px;height:130px;border-radius:50%;display:flex;align-items:center;justify-content:center;box-shadow:0 10px 30px rgba(107,26,26,0.2);position:relative;z-index:2;border:6px solid var(--cream);text-align:center}
-.story-year-badge::after{content:'';position:absolute;inset:-8px;border-radius:50%;border:2px dashed rgba(201,168,76,0.4);animation:spin 25s linear infinite}
-@keyframes spin{ 100%{transform:rotate(360deg)} }
-.story-content{background:var(--white);padding:3rem;border-radius:16px;box-shadow:0 10px 30px rgba(0,0,0,0.04);position:relative;z-index:2;border:1px solid #f0f0f0}
-.story-content h3{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--wine-dark);margin-bottom:1rem;line-height:1.2}
-.story-content p{color:var(--text-muted);font-size:1.05rem;line-height:1.8;margin:0}
+/* INSTITUTIONAL STORY */
+.story-section{background:var(--white);padding:8rem 0;position:relative;border-top:1px solid #EAE5DE}
+.story-container{max-width:1100px;margin:0 auto;padding:0 2rem}
+.story-item{position:relative;padding:5rem 0;border-bottom:1px solid rgba(0,0,0,0.05)}
+.story-item:last-child{border-bottom:none}
+.story-watermark{position:absolute;left:-5%;top:15%;font-family:'Playfair Display',serif;font-size:clamp(6rem,12vw,14rem);color:var(--cream-dark);opacity:0.3;font-weight:700;line-height:1;z-index:1;user-select:none;letter-spacing:-4px}
+.story-content{position:relative;z-index:2;display:grid;grid-template-columns:1.2fr 2fr;gap:5rem;align-items:start}
 @media(max-width:991px){
-  .story-content{text-align:center;padding:2rem}
+  .story-content{grid-template-columns:1fr;gap:2rem}
+  .story-watermark{left:0;top:0;font-size:6rem;opacity:0.2}
+  .story-item{padding:4rem 0}
 }
+.story-title{font-family:'Playfair Display',serif;font-size:2.2rem;color:var(--wine-dark);font-weight:500;margin-top:0.5rem;line-height:1.3}
+.story-text{font-family:'Inter',sans-serif;font-size:1.1rem;line-height:2;color:var(--text);font-weight:300}
+.story-text-highlight{font-size:1.3rem;color:var(--black);font-weight:400;margin-bottom:1.5rem;line-height:1.6;font-family:'Playfair Display',serif;font-style:italic}
 
 /* LEGACY CALLOUT */
-.legacy-callout{background:var(--wine-dark);color:var(--white);padding:7rem 0;text-align:center;position:relative;overflow:hidden}
-.legacy-callout::before{content:'';position:absolute;inset:0;background:url('images/logo.png') center/contain no-repeat;opacity:0.03;transform:scale(1.5)}
-.legacy-callout-inner{max-width:900px;margin:0 auto;position:relative;z-index:2}
-.legacy-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2.2rem);color:var(--gold);line-height:1.5;margin-bottom:2.5rem;font-style:italic}
-.legacy-author{font-size:0.95rem;text-transform:uppercase;letter-spacing:3px;color:rgba(255,255,255,0.7);font-weight:600;display:flex;align-items:center;justify-content:center;gap:15px}
-.legacy-author::before, .legacy-author::after{content:'';display:block;width:40px;height:1px;background:rgba(255,255,255,0.2)}
+.legacy-callout{background:var(--wine-dark);color:var(--white);padding:8rem 0;text-align:center;position:relative;overflow:hidden}
+.legacy-callout::before{content:'';position:absolute;inset:0;background:url('images/logo.png') center/contain no-repeat;opacity:0.04;transform:scale(1.3)}
+.legacy-callout-inner{max-width:850px;margin:0 auto;position:relative;z-index:2;padding:0 2rem}
+.legacy-quote{font-family:'Playfair Display',serif;font-size:clamp(1.5rem,3vw,2rem);color:var(--white);line-height:1.7;margin-bottom:3rem;font-weight:400}
+.legacy-author{font-family:'Inter',sans-serif;font-size:0.85rem;text-transform:uppercase;letter-spacing:4px;color:var(--gold);font-weight:500;display:flex;align-items:center;justify-content:center;gap:20px}
+.legacy-author::before, .legacy-author::after{content:'';display:block;width:60px;height:1px;background:rgba(201,168,76,0.3)}
 
 /* SCROLL FADE ANIMATION */
 .reveal { opacity: 0; transform: translateY(40px); transition: opacity 0.8s ease-out, transform 0.8s ease-out; }
@@ -153,63 +146,50 @@ footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem
 <!-- HERO DA PÁGINA SOBRE -->
 <header class="about-hero">
   <div class="about-hero-content reveal">
-    <span class="about-hero-eyebrow">Tradição & Qualidade</span>
+    <span class="about-hero-eyebrow">A Marca</span>
     <h1 class="about-hero-title">Nossa História</h1>
-    <p class="about-hero-desc">Conheça a trajetória da Ponto Country, uma marca construída com amor ao campo, dedicação artesanal e respeito aos nossos clientes há gerações.</p>
+    <p class="about-hero-desc">Conheça a trajetória da Ponto Country. Dedicação artesanal e respeito aos clientes, fortalecidos geração após geração.</p>
   </div>
 </header>
 
 <!-- STORY -->
 <section class="story-section">
-  <div class="container">
-    <div class="story-grid">
-      
-      <!-- Bloco 1 -->
-      <div class="story-item reveal">
-        <div class="story-visual">
-          <div class="story-year-badge">1968</div>
-        </div>
-        <div class="story-content">
-          <h3>O Início de Tudo</h3>
-          <p>Desde 1968, a Ponto Country atua na fabricação de cabrestos para bovinos e equinos, consolidando-se como referência em qualidade e tradição no setor.</p>
-        </div>
-      </div>
-
-      <!-- Bloco 2 -->
-      <div class="story-item reveal">
-        <div class="story-visual">
-          <div class="story-year-badge" style="font-size:1.8rem">Raízes</div>
-        </div>
-        <div class="story-content">
-          <h3>Simplicidade e Dedicação</h3>
+  <div class="story-container">
+    
+    <!-- Bloco 1 -->
+    <div class="story-item reveal">
+      <div class="story-watermark">1968</div>
+      <div class="story-content">
+        <h3 class="story-title">O Início de Tudo</h3>
+        <div class="story-text">
+          <div class="story-text-highlight">Desde 1968, a Ponto Country atua na fabricação de cabrestos para bovinos e equinos, consolidando-se como referência em qualidade e tradição no setor.</div>
           <p>Fundada por Carmelito e sua esposa, Teresinha, a empresa teve início de forma simples e dedicada. Com uma bicicleta, Carmelito percorria as cidades da região, levando produtos exclusivos e diferenciados aos fazendeiros locais.</p>
         </div>
       </div>
+    </div>
 
-      <!-- Bloco 3 -->
-      <div class="story-item reveal">
-        <div class="story-visual">
-          <div class="story-year-badge" style="font-size:1.8rem">Ouro</div>
-        </div>
-        <div class="story-content">
-          <h3>Evolução e Reconhecimento</h3>
+    <!-- Bloco 2 -->
+    <div class="story-item reveal">
+      <div class="story-watermark">Visão</div>
+      <div class="story-content">
+        <h3 class="story-title">Evolução &<br>Excelência</h3>
+        <div class="story-text">
+          <div class="story-text-highlight">O compromisso inabalável com a matéria-prima e os processos rigorosos tornaram a marca um símbolo de prestígio entre os criadores mais exigentes.</div>
           <p>Ao longo dos anos, a Ponto Country evoluiu e desenvolveu o cabresto para exposição, um produto personalizado que conquistou reconhecimento nacional e internacional pela sua excelência, acabamento e qualidade.</p>
         </div>
       </div>
-
     </div>
+
   </div>
 </section>
 
 <!-- LEGACY CALLOUT -->
 <section class="legacy-callout">
-  <div class="container">
-    <div class="legacy-callout-inner reveal">
-      <div class="legacy-quote">
-        "Atualmente, a empresa é administrada pelos filhos dos fundadores, que mantêm vivos os valores construídos ao longo de décadas: tradição, transparência, honestidade e compromisso com a qualidade. Com respeito e dedicação, a Ponto Country continua valorizando a confiança de seus clientes, que prestigiam a marca há gerações."
-      </div>
-      <div class="legacy-author">A Família Ponto Country</div>
+  <div class="legacy-callout-inner reveal">
+    <div class="legacy-quote">
+      "Atualmente, a empresa é administrada pelos filhos dos fundadores, que mantêm vivos os valores construídos ao longo de décadas: tradição, transparência, honestidade e compromisso com a qualidade. Com respeito e dedicação, a Ponto Country continua valorizando a confiança de seus clientes, que prestigiam a marca há gerações."
     </div>
+    <div class="legacy-author">Família Ponto Country</div>
   </div>
 </section>
 

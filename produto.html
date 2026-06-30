@@ -1,0 +1,196 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Produto - Minas Country</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--wine:#6B1A1A;--wine-dark:#4A1010;--wine-light:#8B2A2A;--gold:#C9A84C;--gold-light:#E8C96A;--cream:#F8F3EC;--cream-dark:#EDE5D8;--black:#1A1209;--text:#2C1F0E;--text-muted:#7A6545;--border:#D4C5A9;--white:#FFFFFF;}
+html{scroll-behavior:smooth;font-size:115%}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.nav-top{background:var(--wine-dark);color:var(--gold);text-align:center;padding:8px;font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--wine-dark);font-weight:700;line-height:1.1}
+.nav-logo-text span{display:block;font-size:0.65rem;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.nav-search{flex:1;max-width:500px;position:relative;display:none;}
+@media(min-width: 768px){ .nav-search{display:block;} }
+.nav-search input{width:100%;padding:10px 20px;padding-right:45px;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;background:#f9f9f9;}
+.nav-search input:focus{border-color:var(--wine);background:var(--white);}
+.nav-search button{position:absolute;right:15px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);}
+.nav-search button svg{width:20px;height:20px;fill:currentColor;}
+.nav-icons{display:flex;gap:1.5rem;align-items:center;}
+.icon-link{color:var(--wine-dark);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:0.75rem;font-weight:500;}
+.icon-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.icon-link:hover{color:var(--gold);}
+.nav-categories{border-top:1px solid #f0f0f0;background:var(--white);}
+.nav-categories-inner{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;gap:2rem;justify-content:center; flex-wrap:wrap;}
+.nav-categories a{color:var(--text);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:14px 0;transition:color 0.2s;white-space:nowrap;}
+.nav-categories a:hover{color:var(--wine);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.nav-hamburger span{width:24px;height:2px;background:var(--wine-dark);transition:0.3s}
+@media(max-width: 768px){ .nav-hamburger{display:flex;} .nav-categories{display:none;} .nav-inner{padding: 1rem;} }
+
+/* FOOTER */
+footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-name{font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem;margin-bottom:0.5rem}
+.footer-brand-desc{font-size:0.85rem;line-height:1.7}
+.footer-col h4{color:var(--white);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1rem}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin-bottom:1.5rem}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-copy{font-size:0.8rem}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr}}
+
+/* PRODUCT DETAIL */
+.product-detail-page{padding: 180px 0 6rem; background: var(--white); min-height:80vh;}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem}
+.product-detail-grid{display:grid; grid-template-columns:1fr 1fr; gap:4rem; align-items:start;}
+.pd-img-wrapper{background:#f9f9f9; border:1px solid #f0f0f0; padding-top:100%; position:relative; overflow:hidden;}
+.pd-img{position:absolute; top:0; left:0; width:100%; height:100%; object-fit:cover;}
+.pd-initials{position:absolute; top:50%; left:50%; transform:translate(-50%,-50%); font-family:'Playfair Display',serif; font-size:4rem; color:#B5A48A;}
+.pd-info{display:flex; flex-direction:column; gap:1.5rem;}
+.pd-cat{font-size:0.8rem; text-transform:uppercase; letter-spacing:1px; color:var(--text-muted); font-weight:600;}
+.pd-title{font-family:'Playfair Display',serif; font-size:2.5rem; color:var(--wine-dark); line-height:1.2;}
+.pd-price{font-size:1.8rem; font-weight:700; color:var(--wine-dark); border-bottom:1px solid #f0f0f0; padding-bottom:1.5rem;}
+.pd-desc{font-size:1rem; color:var(--text-muted); line-height:1.8; margin-bottom:1rem;}
+.btn-buy{background:var(--wine); color:white; padding:18px 32px; border-radius:4px; font-weight:700; font-size:1.1rem; text-align:center; text-decoration:none; display:inline-flex; align-items:center; justify-content:center; gap:10px; transition:background 0.2s;}
+.btn-buy:hover{background:var(--wine-light);}
+@media(max-width:768px){ .product-detail-grid{grid-template-columns:1fr; gap:2rem;} .product-detail-page{padding-top:140px;} }
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-top">
+    Desde 1968 | Frete Grátis para todo o Brasil nas compras acima de R$ 500
+  </div>
+  <div class="nav-inner">
+    <div class="nav-hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" style="height: 48px; width: auto; object-fit: contain;">
+      <div class="nav-logo-text">Minas Country<span>Selaria Premium</span></div>
+    </a>
+    <div class="nav-search">
+      <input type="text" placeholder="O que você está procurando?">
+      <button><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+    </div>
+    <div class="nav-icons">
+      <a href="index.html" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Entrar
+      </a>
+      <a href="index.html#catalogo" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Carrinho
+      </a>
+    </div>
+  </div>
+  <div class="nav-categories">
+    <div class="nav-categories-inner">
+      <a href="index.html#catalogo">Produtos</a>
+      <a href="index.html#catalogo">Cabresto bovino</a>
+      <a href="index.html#catalogo">Cabresto equino</a>
+      <a href="index.html#catalogo">Bonés personalizados</a>
+      <a href="index.html#catalogo">Avental</a>
+      <a href="index.html#catalogo">Selaria e cutelaria</a>
+      <a href="sobre.html">Quem Somos</a>
+    </div>
+  </div>
+</nav>
+
+<section class="product-detail-page">
+  <div class="container">
+    <div id="product-container" class="product-detail-grid">
+      <!-- Injected by JS -->
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Minas Country</div>
+        <p class="footer-brand-desc">Loja e fábrica mineira. Tradição, qualidade e amor ao campo desde 1968.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html#catalogo">Produtos</a>
+        <a href="sobre.html">Quem Somos</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Minas Country. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
+const CAT_INITIALS = {bovino:'CB',equino:'CE',bones:'BN',avental:'AV',selaria:'SC'};
+const WPP = '5534988756121';
+
+function getProducts(){
+  try{return JSON.parse(localStorage.getItem('mc_products')||'[]')}catch{return[]}
+}
+
+function loadProduct() {
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = parseInt(urlParams.get('id'));
+  const container = document.getElementById('product-container');
+  
+  if(!id) {
+    container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
+    return;
+  }
+  
+  const products = getProducts();
+  const p = products.find(x => x.id === id && x.active);
+  
+  if(!p) {
+    container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
+    return;
+  }
+  
+  const catLabel = CAT_LABELS[p.cat] || p.cat;
+  const initials = CAT_INITIALS[p.cat] || 'MC';
+  const priceFormatted = Number(p.price).toFixed(2).replace('.',',');
+  const wppText = `Olá! Tenho interesse no produto: *${p.name}* (R$ ${priceFormatted})`;
+
+  container.innerHTML = `
+    <div class="pd-img-wrapper">
+      ${p.img ? `<img src="${p.img}" class="pd-img" alt="${p.name}">` : `<span class="pd-initials">${initials}</span>`}
+    </div>
+    <div class="pd-info">
+      <div class="pd-cat">${catLabel}</div>
+      <h1 class="pd-title">${p.name}</h1>
+      <div class="pd-price">R$ ${priceFormatted}</div>
+      <div class="pd-desc">
+        <strong>Descrição do Produto:</strong><br><br>
+        ${p.desc.replace(/\\n/g, '<br>')}
+      </div>
+      
+      <div style="margin-top:2rem;">
+        <a href="https://wa.me/${WPP}?text=${encodeURIComponent(wppText)}" target="_blank" class="btn-buy">
+          <svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
+          Comprar no WhatsApp
+        </a>
+      </div>
+    </div>
+  `;
+}
+loadProduct();
+</script>
+</body>
+</html>

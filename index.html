@@ -25,43 +25,47 @@ html{scroll-behavior:smooth;font-size:115%}
 body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
 
 /* NAV */
-nav{position:fixed;top:0;width:100%;z-index:1000;background:rgba(26,18,9,0.95);backdrop-filter:blur(10px);border-bottom:1px solid rgba(201,168,76,0.3)}
-.nav-inner{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;align-items:center;justify-content:space-between;height:80px}
+nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.nav-top{background:var(--wine-dark);color:var(--gold);text-align:center;padding:8px;font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
 .nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
-.nav-logo-icon{width:40px;height:40px;background:var(--gold);border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:18px}
-.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.1rem;color:var(--white);font-weight:500;line-height:1.2}
-.nav-logo-text span{display:block;font-size:0.65rem;color:var(--gold);font-family:'Inter',sans-serif;font-weight:400;letter-spacing:2px;text-transform:uppercase}
-.nav-links{display:flex;gap:2rem;list-style:none}
-.nav-links a{color:rgba(255,255,255,0.8);text-decoration:none;font-size:0.9rem;letter-spacing:0.5px;transition:color 0.2s}
-.nav-links a:hover{color:var(--gold)}
-.nav-btn{background:var(--gold);color:var(--black);padding:8px 20px;border-radius:4px;font-size:0.85rem;font-weight:600;text-decoration:none;transition:background 0.2s}
-.nav-btn:hover{background:var(--gold-light)}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--wine-dark);font-weight:700;line-height:1.1}
+.nav-logo-text span{display:block;font-size:0.65rem;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.nav-search{flex:1;max-width:500px;position:relative;display:none;}
+@media(min-width: 768px){ .nav-search{display:block;} }
+.nav-search input{width:100%;padding:10px 20px;padding-right:45px;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;background:#f9f9f9;}
+.nav-search input:focus{border-color:var(--wine);background:var(--white);}
+.nav-search button{position:absolute;right:15px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);}
+.nav-search button svg{width:20px;height:20px;fill:currentColor;}
+.nav-icons{display:flex;gap:1.5rem;align-items:center;}
+.icon-link{color:var(--wine-dark);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:0.75rem;font-weight:500;}
+.icon-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.icon-link:hover{color:var(--gold);}
+.nav-categories{border-top:1px solid #f0f0f0;background:var(--white);}
+.nav-categories-inner{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;gap:2rem;justify-content:center;}
+.nav-categories a{color:var(--text);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:14px 0;transition:color 0.2s;}
+.nav-categories a:hover{color:var(--wine);}
 .nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
-.nav-hamburger span{width:24px;height:2px;background:var(--white);transition:0.3s}
+.nav-hamburger span{width:24px;height:2px;background:var(--wine-dark);transition:0.3s}
+@media(max-width: 768px){ .nav-hamburger{display:flex;} .nav-categories{display:none;} .nav-inner{padding: 1rem;} }
 
-/* HERO */
-.hero{min-height:100vh;background:linear-gradient(135deg,var(--black) 0%,var(--wine-dark) 40%,#3A0A0A 100%);display:flex;align-items:center;position:relative;overflow:hidden}
-.hero::before{content:'';position:absolute;inset:0;background:url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23C9A84C' fill-opacity='0.04'%3E%3Cpath d='M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")}
-.hero-inner{max-width:1400px;margin:0 auto;padding:0 2rem;padding-top:80px;display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:center;width:100%}
-.hero-eyebrow{display:inline-flex;align-items:center;gap:8px;background:rgba(201,168,76,0.15);border:1px solid rgba(201,168,76,0.3);color:var(--gold);padding:6px 16px;border-radius:100px;font-size:0.75rem;letter-spacing:2px;text-transform:uppercase;margin-bottom:1.5rem}
-.hero-title{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4rem);color:var(--white);font-weight:700;line-height:1.1;margin-bottom:1.5rem}
-.hero-title em{color:var(--gold);font-style:italic}
-.hero-desc{color:rgba(255,255,255,0.65);font-size:1.05rem;line-height:1.8;margin-bottom:2.5rem;font-weight:300}
-.hero-actions{display:flex;gap:1rem;flex-wrap:wrap}
-.btn-primary{background:var(--gold);color:var(--black);padding:14px 32px;border-radius:4px;font-weight:600;font-size:0.95rem;text-decoration:none;transition:all 0.2s;display:inline-block;letter-spacing:0.5px;cursor:pointer;border:none}
-.btn-primary:hover{background:var(--gold-light);transform:translateY(-1px)}
-.btn-outline{border:1px solid rgba(255,255,255,0.3);color:var(--white);padding:14px 32px;border-radius:4px;font-weight:500;font-size:0.95rem;text-decoration:none;transition:all 0.2s;display:inline-block;cursor:pointer;background:none}
-.btn-outline:hover{border-color:var(--gold);color:var(--gold)}
-.hero-visual{display:flex;justify-content:center;align-items:center}
-.hero-badge{width:340px;height:340px;background:rgba(201,168,76,0.08);border:2px solid rgba(201,168,76,0.2);border-radius:50%;display:flex;align-items:center;justify-content:center;position:relative}
-.hero-badge::before{content:'';position:absolute;inset:-20px;border:1px solid rgba(201,168,76,0.1);border-radius:50%}
-.hero-badge-inner{text-align:center;padding:2rem}
-.hero-badge-icon{font-size:5rem;margin-bottom:1rem;display:block}
-.hero-badge-text{font-family:'Playfair Display',serif;color:var(--gold);font-size:1.4rem;font-weight:500}
-.hero-badge-sub{color:rgba(255,255,255,0.5);font-size:0.8rem;letter-spacing:2px;text-transform:uppercase;margin-top:0.5rem}
-.hero-stats{display:grid;grid-template-columns:repeat(3,1fr);gap:2rem;margin-top:3rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,0.1)}
-.hero-stat-num{font-family:'Playfair Display',serif;font-size:1.8rem;color:var(--gold);font-weight:700}
-.hero-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);text-transform:uppercase;letter-spacing:1px}
+/* CAROUSEL */
+.hero-carousel{margin-top:140px;position:relative;width:100%;height:60vh;min-height:400px;background:#f5f5f5;overflow:hidden;}
+@media(max-width: 768px){ .hero-carousel{margin-top:100px;height:40vh;min-height:300px;} }
+.carousel-track{display:flex;width:100%;height:100%;transition:transform 0.5s ease-in-out;}
+.carousel-slide{min-width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative;}
+.carousel-slide::before{content:'';position:absolute;inset:0;background:rgba(0,0,0,0.4);}
+.slide-content{position:relative;text-align:center;color:white;padding:2rem;}
+.slide-content h2{font-family:'Playfair Display',serif;font-size:clamp(2rem, 5vw, 4rem);font-weight:700;margin-bottom:1rem;text-transform:uppercase;letter-spacing:2px;color:#fff;}
+.slide-content p{font-size:1.1rem;font-weight:300;margin-bottom:2rem;max-width:600px;margin-left:auto;margin-right:auto;}
+.carousel-arrow{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,0.8);border:none;width:50px;height:50px;border-radius:50%;display:flex;align-items:center;justify-content:center;font-size:1.5rem;cursor:pointer;color:var(--wine-dark);transition:background 0.2s;z-index:10;}
+.carousel-arrow:hover{background:white;}
+.carousel-prev{left:2rem;}
+.carousel-next{right:2rem;}
+@media(max-width:768px){ .carousel-arrow{width:40px;height:40px;font-size:1.2rem;} .carousel-prev{left:1rem;} .carousel-next{right:1rem;} }
+.carousel-dots{position:absolute;bottom:1.5rem;left:50%;transform:translateX(-50%);display:flex;gap:8px;z-index:10;}
+.carousel-dot{width:10px;height:10px;border-radius:50%;background:rgba(255,255,255,0.5);border:none;cursor:pointer;padding:0;}
+.carousel-dot.active{background:white;}
 
 /* SECTIONS */
 section{padding:6rem 0}
@@ -88,29 +92,23 @@ section{padding:6rem 0}
 .feature-list-desc{font-family:'Inter',sans-serif;font-size:0.875rem;color:#7A6545;line-height:1.6}
 
 /* CATALOG */
-.catalog{background:var(--cream)}
-.catalog-header{display:flex;align-items:flex-end;justify-content:space-between;flex-wrap:wrap;gap:1.5rem;margin-bottom:2.5rem}
-.btn-catalog-cta{background:#C9A84C;color:#1A1209;padding:12px 28px;border-radius:4px;font-weight:700;text-decoration:none;transition:all 0.2s;display:inline-block;cursor:pointer;border:none}
-.btn-catalog-cta:hover{background:#E8C96A;transform:translateY(-1px)}
-.filter-tabs{display:flex;gap:0.5rem;flex-wrap:wrap;margin-top:2rem}
-.filter-tab{padding:7px 20px;border-radius:100px;border:1px solid #D4C5A9;background:#FFFFFF;color:#7A6545;font-size:0.82rem;cursor:pointer;transition:all 0.2s;font-weight:500}
-.filter-tab.active,.filter-tab:hover{background:#6B1A1A;color:#FFFFFF;border-color:#6B1A1A}
-.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(280px,1fr));gap:1.5rem;margin-top:2rem}
-.product-card{background:#FFFFFF;border-radius:8px;overflow:hidden;border:1px solid #E8DDD0;transition:all 0.25s ease;cursor:pointer}
-.product-card:hover{box-shadow:0 6px 24px rgba(107,26,26,0.10);transform:translateY(-3px)}
-.product-img{width:100%;height:200px;object-fit:cover;background:linear-gradient(to bottom, #E8DDD0, #D4C5A9);display:flex;align-items:center;justify-content:center;border-radius:8px 8px 0 0}
-.product-img img{width:100%;height:100%;object-fit:cover;border-radius:8px 8px 0 0}
-.product-img-initials{font-family:'Playfair Display',serif;font-size:3rem;color:#B5A48A}
-.product-info{padding:1.25rem}
-.product-cat{font-family:'Inter',sans-serif;font-size:0.68rem;letter-spacing:2px;text-transform:uppercase;color:#8B2A2A;font-weight:600;margin-bottom:0.4rem}
-.product-name{font-family:'Playfair Display',serif;font-size:1rem;font-weight:600;color:#1A1209;margin-bottom:0.4rem;line-height:1.35}
-.product-desc{font-family:'Inter',sans-serif;font-size:0.8rem;color:#7A6545;line-height:1.6;margin-bottom:1rem;display:-webkit-box;-webkit-line-clamp:2;-webkit-box-orient:vertical;overflow:hidden}
-.product-divider{width:100%;height:1px;background:#EDE5D8;margin-bottom:1rem}
-.product-footer{display:flex;align-items:center;justify-content:space-between}
-.product-price{font-family:'Playfair Display',serif;font-size:1.2rem;font-weight:700;color:#6B1A1A}
-.product-price span{font-family:'Inter',sans-serif;font-size:0.7rem;font-weight:400;color:#B5A48A}
-.btn-whatsapp{background:transparent;color:#6B1A1A;padding:7px 18px;border-radius:4px;font-size:0.8rem;font-weight:600;text-decoration:none;transition:all 0.2s;border:1px solid #6B1A1A;cursor:pointer;display:inline-flex;align-items:center}
-.btn-whatsapp:hover{background:#6B1A1A;color:#FFFFFF}
+.catalog{background:var(--white); padding: 5rem 0;}
+.catalog-header{text-align:center; margin-bottom: 3rem;}
+.catalog-header h2{font-size: clamp(2rem, 4vw, 2.8rem); font-family:'Playfair Display',serif; text-transform:uppercase; letter-spacing:1px; margin-bottom:1rem; color:var(--wine-dark);}
+.filter-tabs{display:flex;justify-content:center;gap:1.5rem;flex-wrap:wrap;margin-bottom:3rem}
+.filter-tab{padding:8px 0;border:none;border-bottom:2px solid transparent;background:none;color:var(--text-muted);font-size:0.9rem;text-transform:uppercase;letter-spacing:1px;cursor:pointer;transition:all 0.2s;font-weight:600;}
+.filter-tab.active,.filter-tab:hover{color:var(--wine-dark);border-bottom-color:var(--wine-dark);}
+.products-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:2.5rem;}
+.product-card{background:var(--white);border-radius:0;overflow:hidden;transition:all 0.3s ease;text-decoration:none;display:block;}
+.product-card:hover{transform:translateY(-5px);}
+.product-img-wrapper{position:relative;width:100%;padding-top:120%;overflow:hidden;background:#f9f9f9;margin-bottom:1rem;border:1px solid #f0f0f0;}
+.product-img{position:absolute;top:0;left:0;width:100%;height:100%;object-fit:cover;transition:transform 0.5s ease;}
+.product-card:hover .product-img{transform:scale(1.05);}
+.product-img-initials{position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);font-family:'Playfair Display',serif;font-size:3rem;color:#B5A48A;}
+.product-info{text-align:center;}
+.product-cat{font-family:'Inter',sans-serif;font-size:0.7rem;letter-spacing:1px;text-transform:uppercase;color:var(--text-muted);font-weight:600;margin-bottom:0.4rem}
+.product-name{font-family:'Inter',sans-serif;font-size:0.95rem;font-weight:500;color:var(--text);margin-bottom:0.5rem;text-transform:uppercase;letter-spacing:0.5px;}
+.product-price{font-family:'Inter',sans-serif;font-size:1.15rem;font-weight:700;color:var(--wine-dark);}
 .empty-state{text-align:center;padding:4rem 2rem;color:var(--text-muted)}
 .empty-state-icon{font-size:3rem;margin-bottom:1rem}
 
@@ -263,154 +261,92 @@ td{padding:12px;border-bottom:1px solid #e6e6e6;font-size:0.85rem;color:rgba(0,0
 
 <!-- NAV -->
 <nav>
+  <div class="nav-top">
+    Desde 1968 | Frete Grátis para todo o Brasil nas compras acima de R$ 500
+  </div>
   <div class="nav-inner">
-    <a href="#home" class="nav-logo">
-      <img src="images/logo.png" alt="Logo" style="height: 42px; width: auto; object-fit: contain;">
-      <div class="nav-logo-text">Minas Country<span>Fábrica de Cabresto & Selaria</span></div>
-    </a>
-    <ul class="nav-links">
-      <li><a href="#home">Início</a></li>
-      <li><a href="#catalogo">Produtos</a></li>
-      <li><a href="#sobre">Quem somos</a></li>
-      <li><a href="#contato">Contato</a></li>
-    </ul>
-    <a href="https://wa.me/5534988756121" class="nav-btn" target="_blank">WhatsApp</a>
     <div class="nav-hamburger" onclick="toggleMenu()">
       <span></span><span></span><span></span>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" style="height: 48px; width: auto; object-fit: contain;">
+      <div class="nav-logo-text">Minas Country<span>Selaria Premium</span></div>
+    </a>
+    <div class="nav-search">
+      <input type="text" placeholder="O que você está procurando?">
+      <button><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+    </div>
+    <div class="nav-icons">
+      <a href="#" class="icon-link" onclick="openAdmin(event)">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Entrar
+      </a>
+      <a href="#catalogo" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Carrinho
+      </a>
+    </div>
+  </div>
+  <div class="nav-categories">
+    <div class="nav-categories-inner">
+      <a href="#catalogo" onclick="filterProducts('all', this)">Produtos</a>
+      <a href="#catalogo" onclick="filterProducts('bovino', this)">Cabresto bovino</a>
+      <a href="#catalogo" onclick="filterProducts('equino', this)">Cabresto equino</a>
+      <a href="#catalogo" onclick="filterProducts('bones', this)">Bonés personalizados</a>
+      <a href="#catalogo" onclick="filterProducts('avental', this)">Avental</a>
+      <a href="#catalogo" onclick="filterProducts('selaria', this)">Selaria e cutelaria</a>
+      <a href="sobre.html">Quem Somos</a>
     </div>
   </div>
 </nav>
 
-<!-- HERO -->
-<section class="hero" id="home">
-  <div class="hero-inner">
-    <div>
-      <div class="hero-eyebrow">✦ Uberaba, Minas Gerais</div>
-      <h1 class="hero-title">Couro artesanal,<br>tradição <em>mineira</em></h1>
-      <p class="hero-desc">Cabrestos e artigos de selaria fabricados à mão com couro selecionado. Para o gado e o cavalo que você cuida com respeito.</p>
-      <div class="hero-actions">
-        <a href="#catalogo" class="btn-primary">Ver produtos</a>
-        <a href="https://wa.me/5534988756121" class="btn-outline" target="_blank">Falar no WhatsApp</a>
-      </div>
-      <div class="hero-stats">
-        <div><div class="hero-stat-num">15+</div><div class="hero-stat-label">Anos de ofício</div></div>
-        <div><div class="hero-stat-num">100%</div><div class="hero-stat-label">Artesanal</div></div>
-        <div><div class="hero-stat-num">MG</div><div class="hero-stat-label">Todo Brasil</div></div>
-      </div>
+<!-- CAROUSEL -->
+<section class="hero-carousel" id="home">
+  <div class="carousel-track" id="carousel-track">
+    <div class="carousel-slide" style="background: linear-gradient(135deg, var(--wine-dark) 0%, #3A0A0A 100%);">
+       <div class="slide-content reveal">
+          <h2>Couro Artesanal</h2>
+          <p>Tradição e durabilidade para o campo. Peças feitas à mão com o melhor couro natural.</p>
+          <a href="#catalogo" class="btn-primary">Ver Coleção</a>
+       </div>
     </div>
-    <div class="hero-visual">
-      <div class="hero-badge">
-        <div class="hero-badge-inner">
-          <img src="images/logo.png" alt="Minas Country" style="width: 90%; max-width: 340px; object-fit: contain; transform: scale(1.15);">
-        </div>
-      </div>
+    <div class="carousel-slide" style="background: linear-gradient(135deg, var(--black) 0%, #2A1F15 100%);">
+       <div class="slide-content reveal">
+          <h2 style="color:var(--gold);">Linha Selaria</h2>
+          <p>Arreios e acessórios de alto padrão para quem exige qualidade e conforto no dia a dia.</p>
+          <a href="#catalogo" class="btn-primary" style="background:white; color:var(--black);">Comprar Agora</a>
+       </div>
     </div>
+  </div>
+  <button class="carousel-arrow carousel-prev" onclick="moveSlide(-1)">❮</button>
+  <button class="carousel-arrow carousel-next" onclick="moveSlide(1)">❯</button>
+  <div class="carousel-dots" id="carousel-dots">
+     <button class="carousel-dot active" onclick="setSlide(0)"></button>
+     <button class="carousel-dot" onclick="setSlide(1)"></button>
   </div>
 </section>
 
-<!-- FEATURES -->
-<section class="features" id="sobre">
-  <div class="container">
-    <div class="features-wrapper">
-      <div class="features-left reveal">
-        <div class="features-left-num">15+</div>
-        <div class="features-left-label">anos de experiência</div>
-        <div class="features-left-desc">Fábrica familiar em Uberaba, Minas Gerais. Cada peça costurada à mão com couro bovino selecionado.</div>
-      </div>
-      <div class="features-right">
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">01</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Couro bovino curtido ao tanino</div>
-            <div class="feature-list-desc">Selecionado rigorosamente, sem concessões à qualidade</div>
-          </div>
-        </div>
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">02</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Fabricação 100% artesanal</div>
-            <div class="feature-list-desc">Cada peça costurada e montada à mão por artesãos experientes</div>
-          </div>
-        </div>
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">03</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Cabrestos para gado e cavalo</div>
-            <div class="feature-list-desc">Linha completa para diferentes necessidades do campo</div>
-          </div>
-        </div>
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">04</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Selaria e acessórios</div>
-            <div class="feature-list-desc">Arreios, selas e ferramentas para o manejo diário</div>
-          </div>
-        </div>
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">05</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Enviamos para todo o Brasil</div>
-            <div class="feature-list-desc">Embalagem reforçada e rastreamento garantido</div>
-          </div>
-        </div>
-        <div class="feature-list-item reveal">
-          <div class="feature-list-num">06</div>
-          <div class="feature-list-content">
-            <div class="feature-list-title">Atendimento direto com o fabricante</div>
-            <div class="feature-list-desc">Fazemos sob encomenda e personalizamos peças</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CATALOG -->
 <section class="catalog" id="catalogo">
   <div class="container">
-    <div class="catalog-header">
-      <div>
-        <div class="section-eyebrow" style="font-family:'Inter',sans-serif;font-size:0.72rem;letter-spacing:3px;text-transform:uppercase;color:#8B2A2A;margin-bottom:0.5rem">PRODUTOS</div>
-        <h2 class="section-title">Nossa coleção</h2>
-      </div>
-      <a href="https://wa.me/5534988756121?text=Olá! Gostaria de fazer um pedido personalizado." class="btn-catalog-cta" target="_blank" style="white-space:nowrap">Pedir personalizado</a>
+    <div class="catalog-header reveal">
+      <h2>Nossa Coleção</h2>
     </div>
-    <div class="filter-tabs">
+    <div class="filter-tabs reveal">
       <button class="filter-tab active" onclick="filterProducts('all',this)">Todos</button>
-      <button class="filter-tab" onclick="filterProducts('gado',this)">Cabrestos para gado</button>
-      <button class="filter-tab" onclick="filterProducts('cavalo',this)">Cabrestos para cavalo</button>
-      <button class="filter-tab" onclick="filterProducts('selaria',this)">Selaria</button>
-      <button class="filter-tab" onclick="filterProducts('acessorios',this)">Acessórios</button>
+      <button class="filter-tab" onclick="filterProducts('bovino',this)">Cabresto bovino</button>
+      <button class="filter-tab" onclick="filterProducts('equino',this)">Cabresto equino</button>
+      <button class="filter-tab" onclick="filterProducts('bones',this)">Bonés</button>
+      <button class="filter-tab" onclick="filterProducts('avental',this)">Avental</button>
+      <button class="filter-tab" onclick="filterProducts('selaria',this)">Selaria e cutelaria</button>
     </div>
     <div class="products-grid" id="products-grid"></div>
   </div>
 </section>
 
-<!-- ABOUT -->
-<section class="about" id="sobre">
-  <div class="container">
-    <div class="about-grid">
-      <div>
-        <div class="section-eyebrow">Quem somos</div>
-        <h2 class="section-title">Tradição mineira,<br>qualidade nacional</h2>
-        <p class="about-desc">A Minas Country nasceu de uma paixão pelo campo e pelo trabalho bem feito. Somos uma loja e fábrica familiar localizada em Uberaba, Minas Gerais, especializados em artigos country e de selaria.</p>
-        <p class="about-desc" style="margin-top:1rem">Cada peça que sai daqui carrega o respeito que temos pelos animais e pela tradição do artesanato em couro. Trabalhamos com couro bovino curtido ao tanino, escolhido a dedo, sem concessões à qualidade.</p>
-        <div class="about-list">
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Localizada na Rua São João Del Rei, 220 - Parque das Américas, Uberaba - MG</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Peças sob medida e personalizadas com seu logotipo ou nome</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Entregamos para todo o Brasil com embalagem reforçada</div></div>
-          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Garantia de qualidade em todas as peças fabricadas</div></div>
-        </div>
-      </div>
-      <div class="about-visual">
-        <div class="about-stat-card"><div class="about-stat-num">15+</div><div class="about-stat-label">Anos de experiência</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">100%</div><div class="about-stat-label">Couro natural</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">MG</div><div class="about-stat-label">Feito em Minas</div></div>
-        <div class="about-stat-card"><div class="about-stat-num">BR</div><div class="about-stat-label">Envio nacional</div></div>
-      </div>
-    </div>
-  </div>
-</section>
+
 
 <!-- CONTACT -->
 <section class="contact" id="contato">
@@ -535,10 +471,11 @@ td{padding:12px;border-bottom:1px solid #e6e6e6;font-size:0.85rem;color:rgba(0,0
         <div class="form-group">
           <label>Categoria</label>
           <select id="f-cat">
-            <option value="gado">Cabresto para gado</option>
-            <option value="cavalo">Cabresto para cavalo</option>
-            <option value="selaria">Selaria</option>
-            <option value="acessorios">Acessórios</option>
+            <option value="bovino">Cabresto bovino</option>
+            <option value="equino">Cabresto equino</option>
+            <option value="bones">Bonés personalizados</option>
+            <option value="avental">Avental</option>
+            <option value="selaria">Selaria e cutelaria</option>
           </select>
         </div>
         <div class="form-row">
@@ -600,8 +537,8 @@ td{padding:12px;border-bottom:1px solid #e6e6e6;font-size:0.85rem;color:rgba(0,0
 <script>
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = '12345678';
-const CAT_LABELS = {gado:'Cabresto p/ Gado',cavalo:'Cabresto p/ Cavalo',selaria:'Selaria',acessorios:'Acessórios'};
-const CAT_INITIALS = {gado:'GD',cavalo:'CV',selaria:'SL',acessorios:'AC'};
+const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
+const CAT_INITIALS = {bovino:'CB',equino:'CE',bones:'BN',avental:'AV',selaria:'SC'};
 const WPP = '5534988756121';
 
 function getProducts(){
@@ -612,12 +549,12 @@ function saveProducts(p){localStorage.setItem('mc_products',JSON.stringify(p))}
 function initDefaults(){
   if(getProducts().length===0){
     const defaults=[
-      {id:1,name:'Cabresto de couro bovino simples',cat:'gado',price:65,img:'',desc:'Cabresto resistente em couro bovino curtido, ideal para manejo diário de bovinos. Regulagem em fivela de aço inox. Disponível em cores natural e preta.',active:true},
-      {id:2,name:'Cabresto trançado para cavalo',cat:'cavalo',price:120,img:'',desc:'Cabresto artesanal trançado à mão, acabamento premium. Perfeito para exposições, rodeios e uso diário. Couro curtido ao tanino.',active:true},
-      {id:3,name:'Cabresto duplo reforçado – gado de corte',cat:'gado',price:95,img:'',desc:'Estrutura dupla em couro espessado, ideal para animais de grande porte. Alta durabilidade e resistência ao esforço.',active:true},
-      {id:4,name:'Arreio completo para trabalho',cat:'selaria',price:480,img:'',desc:'Conjunto de arreio para trabalho no campo. Inclui cabeçada, freio e rédeas. Fabricado inteiramente em couro natural.',active:true},
-      {id:5,name:'Cabrestozinho para bezerro',cat:'gado',price:38,img:'',desc:'Tamanho adequado para bezerros e novilhas jovens. Regulagem total, couro macio e confortável para o animal.',active:true},
-      {id:6,name:'Raspadeira de couro com cabo',cat:'acessorios',price:29,img:'',desc:'Raspadeira artesanal em couro e madeira. Ferramenta essencial para higiene e trato de cavalos.',active:true},
+      {id:1,name:'Cabresto de couro bovino simples',cat:'bovino',price:65,img:'',desc:'Cabresto resistente em couro bovino curtido, ideal para manejo diário de bovinos. Regulagem em fivela de aço inox. Disponível em cores natural e preta.',active:true},
+      {id:2,name:'Cabresto trançado para cavalo',cat:'equino',price:120,img:'',desc:'Cabresto artesanal trançado à mão, acabamento premium. Perfeito para exposições, rodeios e uso diário. Couro curtido ao tanino.',active:true},
+      {id:3,name:'Boné Minas Country Classic',cat:'bones',price:89,img:'',desc:'Boné personalizado com bordado em alto relevo. Ajuste perfeito e tecido respirável.',active:true},
+      {id:4,name:'Avental de Couro para Ferrador',cat:'avental',price:280,img:'',desc:'Avental reforçado em couro legítimo, ideal para o trabalho pesado. Proteção e durabilidade.',active:true},
+      {id:5,name:'Arreio completo para trabalho',cat:'selaria',price:480,img:'',desc:'Conjunto de arreio para trabalho no campo. Inclui cabeçada, freio e rédeas. Fabricado inteiramente em couro natural.',active:true},
+      {id:6,name:'Faca Artesanal Campeira',cat:'selaria',price:350,img:'',desc:'Faca em aço carbono com cabo de osso e bainha em couro. Ferramenta essencial para o homem do campo.',active:true},
     ];
     saveProducts(defaults);
   }
@@ -632,21 +569,16 @@ function renderProducts(filter='all'){
     return;
   }
   grid.innerHTML=list.map(p=>`
-    <div class="product-card reveal">
-      <div class="product-img">
-        ${p.img?`<img src="${p.img}" alt="${p.name}" onerror="this.style.display='none'">`:`<span class="product-img-initials">${CAT_INITIALS[p.cat]||'MC'}</span>`}
+    <a href="produto.html?id=${p.id}" class="product-card reveal">
+      <div class="product-img-wrapper">
+        ${p.img?`<img src="${p.img}" class="product-img" alt="${p.name}" onerror="this.style.display='none'">`:`<span class="product-img-initials">${CAT_INITIALS[p.cat]||'MC'}</span>`}
       </div>
       <div class="product-info">
         <div class="product-cat">${CAT_LABELS[p.cat]||p.cat}</div>
         <div class="product-name">${p.name}</div>
-        <div class="product-desc">${p.desc||'Produto Minas Country.'}</div>
-        <div class="product-divider"></div>
-        <div class="product-footer">
-          <div class="product-price">R$ ${Number(p.price).toFixed(2).replace('.',',')} <span>à vista</span></div>
-          <a href="https://wa.me/${WPP}?text=Olá! Tenho interesse no produto: *${encodeURIComponent(p.name)}* (R$ ${Number(p.price).toFixed(2)})" class="btn-whatsapp" target="_blank">Pedir</a>
-        </div>
+        <div class="product-price">R$ ${Number(p.price).toFixed(2).replace('.',',')}</div>
       </div>
-    </div>
+    </a>
   `).join('');
   setTimeout(initScrollAnimations, 50);
 }
@@ -843,6 +775,23 @@ function initScrollAnimations() {
 }
 
 function toggleMenu(){}
+
+// CAROUSEL LOGIC
+let currentSlide = 0;
+function showSlide(index) {
+  const track = document.getElementById('carousel-track');
+  const slides = document.querySelectorAll('.carousel-slide');
+  const dots = document.querySelectorAll('.carousel-dot');
+  if(!track || slides.length === 0) return;
+  if (index >= slides.length) currentSlide = 0;
+  else if (index < 0) currentSlide = slides.length - 1;
+  else currentSlide = index;
+  track.style.transform = `translateX(-${currentSlide * 100}%)`;
+  dots.forEach((dot, i) => dot.classList.toggle('active', i === currentSlide));
+}
+function moveSlide(dir) { showSlide(currentSlide + dir); }
+function setSlide(index) { showSlide(index); }
+setInterval(() => { moveSlide(1); }, 5000);
 
 // INIT
 initDefaults();

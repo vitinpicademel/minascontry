@@ -1,0 +1,247 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Quem Somos - Minas Country</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;500;700&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+*{margin:0;padding:0;box-sizing:border-box}
+:root{--wine:#6B1A1A;--wine-dark:#4A1010;--wine-light:#8B2A2A;--gold:#C9A84C;--gold-light:#E8C96A;--cream:#F8F3EC;--cream-dark:#EDE5D8;--black:#1A1209;--text:#2C1F0E;--text-muted:#7A6545;--border:#D4C5A9;--white:#FFFFFF;}
+html{scroll-behavior:smooth;font-size:115%}
+body{font-family:'Inter',sans-serif;background:var(--cream);color:var(--text);line-height:1.6}
+
+/* NAV */
+nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--white);box-shadow:0 2px 10px rgba(0,0,0,0.05);}
+.nav-top{background:var(--wine-dark);color:var(--gold);text-align:center;padding:8px;font-size:0.75rem;font-weight:600;letter-spacing:1px;text-transform:uppercase;}
+.nav-inner{max-width:1400px;margin:0 auto;padding:1rem 2rem;display:flex;align-items:center;justify-content:space-between;gap:2rem;}
+.nav-logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.nav-logo-text{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--wine-dark);font-weight:700;line-height:1.1}
+.nav-logo-text span{display:block;font-size:0.65rem;color:var(--text-muted);font-family:'Inter',sans-serif;font-weight:500;letter-spacing:2px;text-transform:uppercase}
+.nav-search{flex:1;max-width:500px;position:relative;display:none;}
+@media(min-width: 768px){ .nav-search{display:block;} }
+.nav-search input{width:100%;padding:10px 20px;padding-right:45px;border:1px solid var(--border);border-radius:100px;font-family:'Inter',sans-serif;font-size:0.9rem;outline:none;transition:border-color 0.2s;background:#f9f9f9;}
+.nav-search input:focus{border-color:var(--wine);background:var(--white);}
+.nav-search button{position:absolute;right:15px;top:50%;transform:translateY(-50%);background:none;border:none;cursor:pointer;color:var(--text-muted);}
+.nav-search button svg{width:20px;height:20px;fill:currentColor;}
+.nav-icons{display:flex;gap:1.5rem;align-items:center;}
+.icon-link{color:var(--wine-dark);text-decoration:none;display:flex;flex-direction:column;align-items:center;gap:4px;font-size:0.75rem;font-weight:500;}
+.icon-link svg{width:22px;height:22px;fill:none;stroke:currentColor;stroke-width:1.8;}
+.icon-link:hover{color:var(--gold);}
+.nav-categories{border-top:1px solid #f0f0f0;background:var(--white);}
+.nav-categories-inner{max-width:1400px;margin:0 auto;padding:0 2rem;display:flex;gap:2rem;justify-content:center; flex-wrap:wrap;}
+.nav-categories a{color:var(--text);text-decoration:none;font-size:0.85rem;font-weight:600;text-transform:uppercase;letter-spacing:1px;padding:14px 0;transition:color 0.2s;white-space:nowrap;}
+.nav-categories a:hover{color:var(--wine);}
+.nav-hamburger{display:none;flex-direction:column;gap:5px;cursor:pointer;padding:5px}
+.nav-hamburger span{width:24px;height:2px;background:var(--wine-dark);transition:0.3s}
+@media(max-width: 768px){ .nav-hamburger{display:flex;} .nav-categories{display:none;} .nav-inner{padding: 1rem;} }
+
+/* SECTIONS */
+section{padding:6rem 0}
+.container{max-width:1400px;margin:0 auto;padding:0 2rem}
+.section-eyebrow{font-size:0.75rem;letter-spacing:3px;text-transform:uppercase;color:var(--wine);font-weight:600;margin-bottom:0.75rem}
+.section-title{font-family:'Playfair Display',serif;font-size:clamp(1.8rem,3.5vw,2.8rem);font-weight:700;color:var(--black);line-height:1.2;margin-bottom:1rem}
+.section-desc{color:var(--text-muted);font-size:1rem;max-width:520px;line-height:1.8}
+
+/* FEATURES */
+.features{background:#F8F3EC; margin-top: 140px;}
+@media(max-width: 768px){ .features{margin-top: 100px;} }
+.features-wrapper{display:grid;grid-template-columns:40% 1fr;gap:4rem;align-items:stretch}
+.features-left{background:#3A1A0A;border-radius:12px;padding:4rem;display:flex;flex-direction:column;justify-content:center;position:relative;overflow:hidden}
+.features-left::after{content:'';position:absolute;top:0;right:0;width:200px;height:200px;background:radial-gradient(circle, rgba(201,168,76,0.1) 0%, transparent 70%);border-radius:50%;transform:translate(30%, -30%)}
+.features-left-num{font-family:'Playfair Display',serif;font-size:4.5rem;color:var(--gold);font-weight:700;line-height:1;margin-bottom:0.5rem}
+.features-left-label{font-size:1.05rem;color:var(--white);text-transform:uppercase;letter-spacing:1px;margin-bottom:2rem;font-weight:500;opacity:0.9}
+.features-left-desc{color:rgba(255,255,255,0.7);font-size:1.1rem;line-height:1.7;font-weight:300}
+.features-right{display:flex;flex-direction:column;justify-content:center}
+.feature-list-item{display:flex;gap:1.5rem;padding:1.25rem 0;border-bottom:1px solid #D4C5A9;align-items:flex-start}
+.feature-list-item:last-child{border-bottom:none;padding-bottom:0}
+.feature-list-item:first-child{padding-top:0}
+.feature-list-num{font-family:'Playfair Display',serif;font-size:1.4rem;color:var(--gold);font-weight:600;min-width:36px;line-height:1.2}
+.feature-list-content{display:flex;flex-direction:column;gap:0.25rem}
+.feature-list-title{font-family:'Inter',sans-serif;font-size:1.1rem;font-weight:600;color:#1A1209}
+.feature-list-desc{font-family:'Inter',sans-serif;font-size:0.875rem;color:#7A6545;line-height:1.6}
+
+/* ABOUT */
+.about{background:var(--wine-dark);color:var(--white)}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center}
+.about .section-eyebrow{color:var(--gold)}
+.about .section-title{color:var(--white)}
+.about-desc{color:rgba(255,255,255,0.7);line-height:1.9;margin-top:1rem;font-size:0.95rem}
+.about-list{margin-top:2rem;display:flex;flex-direction:column;gap:1rem}
+.about-item{display:flex;align-items:flex-start;gap:12px}
+.about-item-dot{width:8px;height:8px;border-radius:50%;background:var(--gold);margin-top:7px;flex-shrink:0}
+.about-item-text{color:rgba(255,255,255,0.75);font-size:0.9rem}
+.about-visual{display:grid;grid-template-columns:1fr 1fr;gap:1rem}
+.about-stat-card{background:rgba(255,255,255,0.06);border:1px solid rgba(255,255,255,0.12);border-radius:10px;padding:1.5rem;text-align:center}
+.about-stat-num{font-family:'Playfair Display',serif;font-size:2rem;color:var(--gold);font-weight:700}
+.about-stat-label{font-size:0.8rem;color:rgba(255,255,255,0.5);margin-top:0.25rem;text-transform:uppercase;letter-spacing:1px}
+
+@media(max-width:1024px){
+  .features-wrapper{grid-template-columns:1fr;gap:3rem}
+  .features-left{padding:3rem 2rem}
+  .about-grid{grid-template-columns:1fr}
+  .about-visual{order:-1}
+}
+
+/* FOOTER */
+footer{background:var(--black);color:rgba(255,255,255,0.6);padding:3rem 0 1.5rem}
+.footer-inner{max-width:1400px;margin:0 auto;padding:0 2rem}
+.footer-grid{display:grid;grid-template-columns:2fr 1fr 1fr;gap:3rem;margin-bottom:3rem}
+.footer-brand-name{font-family:'Playfair Display',serif;color:var(--white);font-size:1.2rem;margin-bottom:0.5rem}
+.footer-brand-desc{font-size:0.85rem;line-height:1.7}
+.footer-col h4{color:var(--white);font-size:0.8rem;text-transform:uppercase;letter-spacing:2px;margin-bottom:1rem}
+.footer-col a{display:block;color:rgba(255,255,255,0.5);text-decoration:none;font-size:0.85rem;margin-bottom:0.5rem;transition:color 0.2s}
+.footer-col a:hover{color:var(--gold)}
+.footer-divider{border:none;border-top:1px solid rgba(255,255,255,0.08);margin-bottom:1.5rem}
+.footer-bottom{display:flex;justify-content:space-between;align-items:center;flex-wrap:gap}
+.footer-copy{font-size:0.8rem}
+@media(max-width:1024px){.footer-grid{grid-template-columns:1fr}}
+</style>
+</head>
+<body>
+
+<nav>
+  <div class="nav-top">
+    Desde 1968 | Frete Grátis para todo o Brasil nas compras acima de R$ 500
+  </div>
+  <div class="nav-inner">
+    <div class="nav-hamburger" onclick="toggleMenu()">
+      <span></span><span></span><span></span>
+    </div>
+    <a href="index.html" class="nav-logo">
+      <img src="images/logo.png" alt="Logo" style="height: 48px; width: auto; object-fit: contain;">
+      <div class="nav-logo-text">Minas Country<span>Selaria Premium</span></div>
+    </a>
+    <div class="nav-search">
+      <input type="text" placeholder="O que você está procurando?">
+      <button><svg viewBox="0 0 24 24"><path d="M15.5 14h-.79l-.28-.27C15.41 12.59 16 11.11 16 9.5 16 5.91 13.09 3 9.5 3S3 5.91 3 9.5 5.91 16 9.5 16c1.61 0 3.09-.59 4.23-1.57l.27.28v.79l5 4.99L20.49 19l-4.99-5zm-6 0C7.01 14 5 11.99 5 9.5S7.01 5 9.5 5 14 7.01 14 9.5 11.99 14 9.5 14z"/></svg></button>
+    </div>
+    <div class="nav-icons">
+      <a href="index.html" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M12 12c2.21 0 4-1.79 4-4s-1.79-4-4-4-4 1.79-4 4 1.79 4 4 4zm0 2c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/></svg>
+        Entrar
+      </a>
+      <a href="index.html#catalogo" class="icon-link">
+        <svg viewBox="0 0 24 24"><path d="M7 18c-1.1 0-1.99.9-1.99 2S5.9 22 7 22s2-.9 2-2-.9-2-2-2zM1 2v2h2l3.6 7.59-1.35 2.45c-.16.28-.25.61-.25.96 0 1.1.9 2 2 2h12v-2H7.42c-.14 0-.25-.11-.25-.25l.03-.12.9-1.63h7.45c.75 0 1.41-.41 1.75-1.03l3.58-6.49c.08-.14.12-.31.12-.48 0-.55-.45-1-1-1H5.21l-.94-2H1zm16 16c-1.1 0-1.99.9-1.99 2s.89 2 1.99 2 2-.9 2-2-.9-2-2-2z"/></svg>
+        Carrinho
+      </a>
+    </div>
+  </div>
+  <div class="nav-categories">
+    <div class="nav-categories-inner">
+      <a href="index.html#catalogo">Produtos</a>
+      <a href="index.html#catalogo">Cabresto bovino</a>
+      <a href="index.html#catalogo">Cabresto equino</a>
+      <a href="index.html#catalogo">Bonés personalizados</a>
+      <a href="index.html#catalogo">Avental</a>
+      <a href="index.html#catalogo">Selaria e cutelaria</a>
+      <a href="sobre.html">Quem Somos</a>
+    </div>
+  </div>
+</nav>
+
+<!-- FEATURES -->
+<section class="features">
+  <div class="container">
+    <div class="features-wrapper">
+      <div class="features-left">
+        <div class="features-left-num">15+</div>
+        <div class="features-left-label">anos de experiência</div>
+        <div class="features-left-desc">Fábrica familiar em Uberaba, Minas Gerais. Cada peça costurada à mão com couro bovino selecionado.</div>
+      </div>
+      <div class="features-right">
+        <div class="feature-list-item">
+          <div class="feature-list-num">01</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Couro bovino curtido ao tanino</div>
+            <div class="feature-list-desc">Selecionado rigorosamente, sem concessões à qualidade</div>
+          </div>
+        </div>
+        <div class="feature-list-item">
+          <div class="feature-list-num">02</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Fabricação 100% artesanal</div>
+            <div class="feature-list-desc">Cada peça costurada e montada à mão por artesãos experientes</div>
+          </div>
+        </div>
+        <div class="feature-list-item">
+          <div class="feature-list-num">03</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Cabrestos para gado e cavalo</div>
+            <div class="feature-list-desc">Linha completa para diferentes necessidades do campo</div>
+          </div>
+        </div>
+        <div class="feature-list-item">
+          <div class="feature-list-num">04</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Selaria e acessórios</div>
+            <div class="feature-list-desc">Arreios, selas e ferramentas para o manejo diário</div>
+          </div>
+        </div>
+        <div class="feature-list-item">
+          <div class="feature-list-num">05</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Enviamos para todo o Brasil</div>
+            <div class="feature-list-desc">Embalagem reforçada e rastreamento garantido</div>
+          </div>
+        </div>
+        <div class="feature-list-item">
+          <div class="feature-list-num">06</div>
+          <div class="feature-list-content">
+            <div class="feature-list-title">Atendimento direto com o fabricante</div>
+            <div class="feature-list-desc">Fazemos sob encomenda e personalizamos peças</div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about">
+  <div class="container">
+    <div class="about-grid">
+      <div>
+        <div class="section-eyebrow">Quem somos</div>
+        <h2 class="section-title">Tradição mineira,<br>qualidade nacional</h2>
+        <p class="about-desc">A Minas Country nasceu de uma paixão pelo campo e pelo trabalho bem feito. Somos uma loja e fábrica familiar localizada em Uberaba, Minas Gerais, especializados em artigos country e de selaria.</p>
+        <p class="about-desc" style="margin-top:1rem">Cada peça que sai daqui carrega o respeito que temos pelos animais e pela tradição do artesanato em couro. Trabalhamos com couro bovino curtido ao tanino, escolhido a dedo, sem concessões à qualidade.</p>
+        <div class="about-list">
+          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Localizada na Rua São João Del Rei, 220 - Parque das Américas, Uberaba - MG</div></div>
+          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Peças sob medida e personalizadas com seu logotipo ou nome</div></div>
+          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Entregamos para todo o Brasil com embalagem reforçada</div></div>
+          <div class="about-item"><div class="about-item-dot"></div><div class="about-item-text">Garantia de qualidade em todas as peças fabricadas</div></div>
+        </div>
+      </div>
+      <div class="about-visual">
+        <div class="about-stat-card"><div class="about-stat-num">15+</div><div class="about-stat-label">Anos de experiência</div></div>
+        <div class="about-stat-card"><div class="about-stat-num">100%</div><div class="about-stat-label">Couro natural</div></div>
+        <div class="about-stat-card"><div class="about-stat-num">MG</div><div class="about-stat-label">Feito em Minas</div></div>
+        <div class="about-stat-card"><div class="about-stat-num">BR</div><div class="about-stat-label">Envio nacional</div></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<footer>
+  <div class="footer-inner">
+    <div class="footer-grid">
+      <div>
+        <div class="footer-brand-name">Minas Country</div>
+        <p class="footer-brand-desc">Loja e fábrica mineira. Tradição, qualidade e amor ao campo desde 1968.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Navegação</h4>
+        <a href="index.html#catalogo">Produtos</a>
+        <a href="sobre.html">Quem Somos</a>
+      </div>
+    </div>
+    <hr class="footer-divider">
+    <div class="footer-bottom">
+      <span class="footer-copy">© 2026 Minas Country. Todos os direitos reservados.</span>
+    </div>
+  </div>
+</footer>
+
+</body>
+</html>

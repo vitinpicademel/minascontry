@@ -50,9 +50,9 @@
 
 <section class="product-detail-page">
   <div class="container">
-    <div id="product-container" class="product-detail-grid">
-      <!-- Injected by JS -->
-    </div>
+    <div id="product-container">
+        <!-- Injected by JS -->
+      </div>
   </div>
 </section>
 
@@ -91,7 +91,7 @@ function loadProduct() {
   const container = document.getElementById('product-container');
   
   if(!id) {
-    container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
+    container.innerHTML = '<div style="text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
     return;
   }
   
@@ -99,7 +99,7 @@ function loadProduct() {
   const p = products.find(x => x.id === id && x.active);
   
   if(!p) {
-    container.innerHTML = '<div style="grid-column:1/-1;text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
+    container.innerHTML = '<div style="text-align:center;padding:4rem;">Produto não encontrado. <a href="index.html">Voltar ao início</a></div>';
     return;
   }
   
@@ -108,30 +108,91 @@ function loadProduct() {
   const priceFormatted = Number(p.price).toFixed(2).replace('.',',');
   const wppText = `Olá! Tenho interesse no produto: *${p.name}* (R$ ${priceFormatted})`;
 
+  // Render main product section
   container.innerHTML = `
-    <div class="pd-img-wrapper">
-      ${p.img ? `<img src="${p.img}" class="pd-img" alt="${p.name}">` : `<span class="pd-initials">${initials}</span>`}
+    <div class="breadcrumb">
+      <a href="index.html">Home</a> <span>/</span> <a href="index.html#catalogo">${catLabel}</a> <span>/</span> ${p.name}
     </div>
-    <div class="pd-info">
-      <div class="pd-cat">${catLabel}</div>
-      <h1 class="pd-title">${p.name}</h1>
-      <div class="pd-price">R$ ${priceFormatted}</div>
-      <div class="pd-desc">
-        <strong>Descrição do Produto:</strong><br><br>
-        ${p.desc.replace(/\\n/g, '<br>')}
+    
+    <div class="product-detail-grid">
+      <div class="pd-gallery">
+        <div class="pd-img-main-wrapper">
+          ${p.img ? `<img src="${p.img}" class="pd-img-main" alt="${p.name}">` : `<span class="pd-initials">${initials}</span>`}
+        </div>
+        <div class="pd-thumbnails">
+          ${p.img ? `<div class="pd-thumb"><img src="${p.img}" alt="Thumbnail"></div>` : ''}
+        </div>
       </div>
       
-      <div style="margin-top:2rem;">
+      <div class="pd-info">
+        <div class="pd-cat">${catLabel}</div>
+        <h1 class="pd-title">${p.name}</h1>
+        <div class="pd-price">R$ ${priceFormatted}</div>
+        <hr class="pd-divider">
+        <div class="pd-short-desc">
+          ${p.desc.substring(0, 150)}${p.desc.length > 150 ? '...' : ''}
+        </div>
+        
         <a href="https://wa.me/${WPP}?text=${encodeURIComponent(wppText)}" target="_blank" class="btn-buy">
           <svg style="width:24px;height:24px;fill:currentColor" viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
           Comprar no WhatsApp
         </a>
+        <div class="pd-trust-badge">
+          <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path></svg>
+          Compra 100% segura, fale direto com a loja
+        </div>
+      </div>
+    </div>
+    
+    <div class="pd-tabs-container">
+      <div class="pd-tabs-header">
+        <button class="pd-tab-btn active">Descrição Geral</button>
+      </div>
+      <div class="pd-tab-content active">
+        ${p.desc.replace(/\n/g, '<br>')}
+      </div>
+    </div>
+    
+    <div class="related-products">
+      <h2 class="related-title">Produtos Relacionados</h2>
+      <div class="products-grid" id="related-container">
+        <!-- Rendered Below -->
       </div>
     </div>
   `;
+
+  // Render related products
+  const relatedContainer = document.getElementById('related-container');
+  const related = products.filter(x => x.cat === p.cat && x.id !== p.id && x.active).slice(0, 4);
+  
+  if(related.length === 0) {
+    document.querySelector('.related-products').style.display = 'none';
+  } else {
+    relatedContainer.innerHTML = related.map(rp => {
+      const rpCat = CAT_LABELS[rp.cat] || rp.cat;
+      const rpInitials = CAT_INITIALS[rp.cat] || 'MC';
+      const rpPrice = Number(rp.price).toFixed(2).replace('.',',');
+      return `
+        <a href="produto.html?id=${rp.id}" class="product-card reveal">
+          <div class="product-img-wrapper">
+            ${rp.img ? `<img src="${rp.img}" alt="${rp.name}" class="product-img">` : `<span class="product-img-initials">${rpInitials}</span>`}
+          </div>
+          <div class="product-info">
+            <div class="product-cat">${rpCat}</div>
+            <h3 class="product-name">${rp.name}</h3>
+            <div class="product-price">R$ ${rpPrice}</div>
+          </div>
+        </a>
+      `;
+    }).join('');
+    
+    // Trigger reveal animation for related products
+    setTimeout(() => {
+      document.querySelectorAll('.product-card.reveal').forEach(el => el.classList.add('active'));
+    }, 100);
+  }
 }
 loadProduct();
-</script>
 <a href="https://wa.me/5534988756121?text=Olá! Gostaria de falar sobre os produtos da Minas Country." target="_blank" class="floating-wpp" title="Fale conosco no WhatsApp">
   <svg viewBox="0 0 24 24"><path d="M17.472 14.382c-.297-.149-1.758-.867-2.03-.967-.273-.099-.471-.148-.67.15-.197.297-.767.966-.94 1.164-.173.199-.347.223-.644.075-.297-.15-1.255-.463-2.39-1.475-.883-.788-1.48-1.761-1.653-2.059-.173-.297-.018-.458.13-.606.134-.133.298-.347.446-.52.149-.174.198-.298.298-.497.099-.198.05-.371-.025-.52-.075-.149-.669-1.612-.916-2.207-.242-.579-.487-.5-.669-.51a12.8 12.8 0 0 0-.57-.01c-.198 0-.52.074-.792.372s-1.04 1.016-1.04 2.479 1.065 2.876 1.213 3.074c.149.198 2.096 3.2 5.077 4.487.709.306 1.262.489 1.694.625.712.227 1.36.195 1.871.118.571-.085 1.758-.719 2.006-1.413.248-.694.248-1.289.173-1.413-.074-.124-.272-.198-.57-.347m-5.421 7.403h-.004a9.87 9.87 0 0 1-5.031-1.378l-.361-.214-3.741.982.998-3.648-.235-.374a9.86 9.86 0 0 1-1.51-5.26c.001-5.45 4.436-9.884 9.888-9.884 2.64 0 5.122 1.03 6.988 2.898a9.825 9.825 0 0 1 2.893 6.994c-.003 5.45-4.437 9.884-9.885 9.884m8.413-18.297A11.815 11.815 0 0 0 12.05 0C5.495 0 .16 5.335.157 11.892c0 2.096.547 4.142 1.588 5.945L.057 24l6.305-1.654a11.882 11.882 0 0 0 5.683 1.448h.005c6.554 0 11.89-5.335 11.893-11.893a11.821 11.821 0 0 0-3.48-8.413Z"/></svg>
 </a>

@@ -52,13 +52,17 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--cream);box-sha
 .nav-hamburger span{width:28px;height:2px;background:var(--wine-dark);transition:0.3s}
 @media(max-width: 768px){ .nav-hamburger{display:flex;} .nav-categories{display:none;} .nav-inner{padding: 1.25rem;} }
 
+/* HERO SECTION WRAPPER */
+.hero-section-wrapper { display: flex; flex-direction: column; min-height: calc(100vh - 136px); margin-top: 136px; }
+@media(max-width: 768px) { .hero-section-wrapper { margin-top: 88px; min-height: auto; display: block; } }
+
 /* CAROUSEL */
-.hero-carousel{margin-top:150px;padding:0;position:relative;width:100%;height:65vh;min-height:450px;background:var(--cream-dark);overflow:hidden;}
-@media(max-width: 768px){ .hero-carousel{margin-top:110px;height:45vh;min-height:350px;} }
+.hero-carousel{padding:0;position:relative;width:100%;flex: 1 1 auto;background:var(--cream-dark);overflow:hidden;}
+@media(max-width: 768px){ .hero-carousel{height:45vh;min-height:350px;flex:none;} }
 .carousel-track{display:flex;width:100%;height:100%;transition:transform 0.6s cubic-bezier(0.25, 1, 0.5, 1);}
 .carousel-slide{min-width:100%;height:100%;background-size:cover;background-position:center;display:flex;align-items:center;justify-content:center;position:relative;}
-.carousel-slide::before{content:'';position:absolute;inset:0;background:rgba(23,18,15,0.5);}
-.slide-content{position:relative;text-align:center;color:var(--white);padding:2rem;}
+.carousel-slide::before{content:'';position:absolute;inset:0;background:radial-gradient(circle at center, rgba(15,5,0,0.45) 0%, rgba(15,5,0,0.3) 100%);z-index:1;}
+.slide-content{position:relative;text-align:center;color:var(--white);padding:2rem;z-index:2;}
 .slide-content h2{font-size:clamp(2.5rem, 6vw, 4.5rem);font-weight:600;margin-bottom:1rem;color:var(--white);letter-spacing:-1px;}
 .slide-content p{font-size:1.2rem;font-weight:400;margin-bottom:2.5rem;max-width:650px;margin-left:auto;margin-right:auto; color:rgba(255,255,255,0.9); line-height:1.7;}
 .btn-primary{background:var(--gold); color:var(--white); padding:16px 36px; border-radius:4px; font-weight:700; font-size:1rem; text-transform:uppercase; letter-spacing:1px; text-decoration:none; display:inline-block; transition:all 0.3s;}
@@ -69,8 +73,8 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--cream);box-sha
 .carousel-next{right:2rem;}
 @media(max-width:768px){ .carousel-arrow{width:44px;height:44px;font-size:1.2rem;} .carousel-prev{left:1rem;} .carousel-next{right:1rem;} }
 .carousel-dots{position:absolute;bottom:2rem;left:50%;transform:translateX(-50%);display:flex;gap:12px;z-index:10;}
-.carousel-dot{width:12px;height:12px;border-radius:50%;background:rgba(255,255,255,0.4);border:none;cursor:pointer;padding:0; transition:all 0.3s;}
-.carousel-dot.active{background:var(--white); transform:scale(1.2);}
+.carousel-dot{width:12px;height:12px;border-radius:50%;background:var(--cream);opacity:0.6;border:none;cursor:pointer;padding:0; transition:all 0.3s;}
+.carousel-dot.active{background:var(--gold); opacity:1; transform:scale(1.3);}
 
 /* SECTIONS */
 section{padding:7rem 0}
@@ -276,9 +280,8 @@ td{padding:16px 20px;border-bottom:1px solid var(--border);font-size:0.95rem;col
 /* RUSTIC TEXTURES */
 .leather-bg { position:relative; }
 .leather-bg::before { content: ''; position:absolute; inset:0; opacity:0.1; background-image: url('https://www.transparenttextures.com/patterns/leather.png'); pointer-events:none; z-index:0; }
-.carousel-slide.leather-bg::after { content: ''; position:absolute; inset:0; opacity:0.1; background-image: url('https://www.transparenttextures.com/patterns/leather.png'); pointer-events:none; z-index:1; mix-blend-mode: overlay; }
-.carousel-slide.leather-bg::before { z-index: 0; }
-.leather-bg > * { position:relative; z-index:1; }
+.carousel-slide.leather-bg::after { content: ''; position:absolute; inset:0; opacity:0.1; background-image: url('https://www.transparenttextures.com/patterns/leather.png'); pointer-events:none; z-index:2; mix-blend-mode: overlay; }
+.leather-bg > * { position:relative; z-index:3; }
 
 .rustic-divider { width: 120px; height: 2px; background: var(--gold); margin: 3rem auto; border:none; opacity: 0.6;}
 

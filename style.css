@@ -271,6 +271,8 @@ td{padding:16px 20px;border-bottom:1px solid var(--border);font-size:0.95rem;col
 /* RUSTIC TEXTURES */
 .leather-bg { position:relative; }
 .leather-bg::before { content: ''; position:absolute; inset:0; opacity:0.1; background-image: url('https://www.transparenttextures.com/patterns/leather.png'); pointer-events:none; z-index:0; }
+.carousel-slide.leather-bg::after { content: ''; position:absolute; inset:0; opacity:0.1; background-image: url('https://www.transparenttextures.com/patterns/leather.png'); pointer-events:none; z-index:1; mix-blend-mode: overlay; }
+.carousel-slide.leather-bg::before { z-index: 0; }
 .leather-bg > * { position:relative; z-index:1; }
 
 .rustic-divider { width: 120px; height: 2px; background: var(--gold); margin: 3rem auto; border:none; opacity: 0.6;}

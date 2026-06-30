@@ -109,7 +109,7 @@
       <button class="filter-tab active" onclick="filterProducts('all',this)">Todos</button>
       <button class="filter-tab" onclick="filterProducts('bovino',this)">Cabresto bovino</button>
       <button class="filter-tab" onclick="filterProducts('equino',this)">Cabresto equino</button>
-      <button class="filter-tab" onclick="filterProducts('bones',this)">Bonés</button>
+      <button class="filter-tab" onclick="filterProducts('bones',this)">Bonés personalizados</button>
       <button class="filter-tab" onclick="filterProducts('avental',this)">Avental</button>
       <button class="filter-tab" onclick="filterProducts('selaria',this)">Selaria e cutelaria</button>
     </div>
@@ -131,8 +131,8 @@
         <div class="banner-label">CABRESTO EQUINO</div>
       </a>
       <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
-        <img src="images/prod_3.png" alt="Bonés">
-        <div class="banner-label">BONÉS</div>
+        <img src="images/prod_3.png" alt="Bonés personalizados">
+        <div class="banner-label">BONÉS PERSONALIZADOS</div>
       </a>
       <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
         <img src="images/prod_4.png" alt="Avental">
@@ -153,8 +153,8 @@
         <div class="banner-label">CABRESTO EQUINO</div>
       </a>
       <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
-        <img src="images/prod_3.png" alt="Bonés">
-        <div class="banner-label">BONÉS</div>
+        <img src="images/prod_3.png" alt="Bonés personalizados">
+        <div class="banner-label">BONÉS PERSONALIZADOS</div>
       </a>
       <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
         <img src="images/prod_4.png" alt="Avental">
@@ -535,7 +535,7 @@ function clearForm(){
   removeImage();
   document.getElementById('f-desc').value='';
   document.getElementById('f-active').checked=true;
-  document.getElementById('f-cat').value='gado';
+  document.getElementById('f-cat').value='bovino';
   document.getElementById('form-title').textContent='Adicionar produto';
   document.getElementById('btn-cancel').style.display='none';
 }

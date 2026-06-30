@@ -179,7 +179,12 @@ function loadProduct() {
 
   // Render related products
   const relatedContainer = document.getElementById('related-container');
-  const related = products.filter(x => x.cat === p.cat && x.id !== p.id && x.active).slice(0, 4);
+  const related = products.filter(x => String(x.cat) === String(p.cat) && String(x.id) !== String(p.id) && x.active).slice(0, 4);
+  
+  console.log('--- DEBUG: Produtos Relacionados ---');
+  console.log('Categoria alvo:', p.cat, '| ID atual:', p.id);
+  console.log('Produtos encontrados na mesma categoria (ativos e diferentes do atual):', related.length);
+  related.forEach(r => console.log('Relacionado -> ID:', r.id, 'Nome:', r.name));
   
   if(related.length === 0) {
     document.querySelector('.related-products').style.display = 'none';
@@ -189,7 +194,7 @@ function loadProduct() {
       const rpInitials = CAT_INITIALS[rp.cat] || 'MC';
       const rpPrice = Number(rp.price).toFixed(2).replace('.',',');
       return `
-        <a href="produto.html?id=${rp.id}" class="product-card reveal">
+        <a href="produto.html?id=${rp.id}" class="product-card" style="opacity:1; transform:none;">
           <div class="product-img-wrapper">
             ${rp.img ? `<img src="${rp.img}" alt="${rp.name}" class="product-img">` : `<span class="product-img-initials">${rpInitials}</span>`}
           </div>
@@ -201,11 +206,6 @@ function loadProduct() {
         </a>
       `;
     }).join('');
-    
-    // Trigger reveal animation for related products
-    setTimeout(() => {
-      document.querySelectorAll('.product-card.reveal').forEach(el => el.classList.add('active'));
-    }, 100);
   }
 }
 loadProduct();

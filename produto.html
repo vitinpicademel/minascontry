@@ -179,12 +179,20 @@ function loadProduct() {
 
   // Render related products
   const relatedContainer = document.getElementById('related-container');
-  const related = products.filter(x => String(x.cat) === String(p.cat) && String(x.id) !== String(p.id) && x.active).slice(0, 4);
+  let related = products.filter(x => String(x.cat) === String(p.cat) && String(x.id) !== String(p.id) && x.active);
+  
+  // Fallback: se não houver produtos na MESMA categoria, mostra de outras categorias
+  if(related.length === 0) {
+    related = products.filter(x => String(x.id) !== String(p.id) && x.active);
+    document.querySelector('.related-title').textContent = 'Você também pode gostar';
+  }
+  
+  related = related.slice(0, 4);
   
   console.log('--- DEBUG: Produtos Relacionados ---');
   console.log('Categoria alvo:', p.cat, '| ID atual:', p.id);
-  console.log('Produtos encontrados na mesma categoria (ativos e diferentes do atual):', related.length);
-  related.forEach(r => console.log('Relacionado -> ID:', r.id, 'Nome:', r.name));
+  console.log('Produtos encontrados para exibição:', related.length);
+  related.forEach(r => console.log('Relacionado -> ID:', r.id, 'Nome:', r.name, 'Cat:', r.cat));
   
   if(related.length === 0) {
     document.querySelector('.related-products').style.display = 'none';

@@ -19,7 +19,6 @@
     </div>
     <a href="index.html" class="nav-logo">
       <img src="images/logo.png" alt="Logo" style="height: 48px; width: auto; object-fit: contain;">
-      <div class="nav-logo-text">Minas Country<span>Selaria Premium</span></div>
     </a>
     <div class="nav-search">
       <input type="text" placeholder="O que você está procurando?">
@@ -39,8 +38,14 @@
   <div class="nav-categories">
     <div class="nav-categories-inner">
       <a href="#catalogo" onclick="filterProducts('all', this)">Produtos</a>
-      <a href="#catalogo" onclick="filterProducts('bovino', this)">Cabresto bovino</a>
-      <a href="#catalogo" onclick="filterProducts('equino', this)">Cabresto equino</a>
+      <div class="nav-dropdown" onclick="this.classList.toggle('active')">
+        <span class="nav-dropdown-btn">Cabrestos personalizados ▾</span>
+        <div class="nav-dropdown-content">
+          <a href="#catalogo" onclick="filterProducts('bovino', this)">Bovino</a>
+          <a href="#catalogo" onclick="filterProducts('equino', this)">Equino</a>
+          <a href="#catalogo" onclick="filterProducts('acessorios', this)">Acessórios</a>
+        </div>
+      </div>
       <a href="#catalogo" onclick="filterProducts('bones', this)">Bonés personalizados</a>
       <a href="#catalogo" onclick="filterProducts('avental', this)">Avental</a>
       <a href="#catalogo" onclick="filterProducts('selaria', this)">Selaria e cutelaria</a>
@@ -109,6 +114,7 @@
       <button class="filter-tab active" onclick="filterProducts('all',this)">Todos</button>
       <button class="filter-tab" onclick="filterProducts('bovino',this)">Cabresto bovino</button>
       <button class="filter-tab" onclick="filterProducts('equino',this)">Cabresto equino</button>
+      <button class="filter-tab" onclick="filterProducts('acessorios',this)">Acessórios</button>
       <button class="filter-tab" onclick="filterProducts('bones',this)">Bonés personalizados</button>
       <button class="filter-tab" onclick="filterProducts('avental',this)">Avental</button>
       <button class="filter-tab" onclick="filterProducts('selaria',this)">Selaria e cutelaria</button>
@@ -130,15 +136,19 @@
         <img src="images/prod_2.png" alt="Cabresto Equino">
         <div class="banner-label">CABRESTO EQUINO</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('acessorios', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
+        <img src="images/sela.png" alt="Acessórios">
+        <div class="banner-label">ACESSÓRIOS</div>
+      </a>
+      <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
         <img src="images/prod_3.png" alt="Bonés personalizados">
         <div class="banner-label">BONÉS PERSONALIZADOS</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[5])" class="banner-card">
         <img src="images/prod_4.png" alt="Avental">
         <div class="banner-label">AVENTAL</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('selaria', document.querySelectorAll('.filter-tab')[5])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('selaria', document.querySelectorAll('.filter-tab')[6])" class="banner-card">
         <img src="images/prod_5.png" alt="Selaria">
         <div class="banner-label">SELARIA</div>
       </a>
@@ -152,15 +162,19 @@
         <img src="images/prod_2.png" alt="Cabresto Equino">
         <div class="banner-label">CABRESTO EQUINO</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('acessorios', document.querySelectorAll('.filter-tab')[3])" class="banner-card">
+        <img src="images/sela.png" alt="Acessórios">
+        <div class="banner-label">ACESSÓRIOS</div>
+      </a>
+      <a href="#catalogo" onclick="filterProducts('bones', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
         <img src="images/prod_3.png" alt="Bonés personalizados">
         <div class="banner-label">BONÉS PERSONALIZADOS</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[4])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('avental', document.querySelectorAll('.filter-tab')[5])" class="banner-card">
         <img src="images/prod_4.png" alt="Avental">
         <div class="banner-label">AVENTAL</div>
       </a>
-      <a href="#catalogo" onclick="filterProducts('selaria', document.querySelectorAll('.filter-tab')[5])" class="banner-card">
+      <a href="#catalogo" onclick="filterProducts('selaria', document.querySelectorAll('.filter-tab')[6])" class="banner-card">
         <img src="images/prod_5.png" alt="Selaria">
         <div class="banner-label">SELARIA</div>
       </a>
@@ -298,6 +312,7 @@
           <select id="f-cat">
             <option value="bovino">Cabresto bovino</option>
             <option value="equino">Cabresto equino</option>
+            <option value="acessorios">Acessórios</option>
             <option value="bones">Bonés personalizados</option>
             <option value="avental">Avental</option>
             <option value="selaria">Selaria e cutelaria</option>
@@ -362,8 +377,8 @@
 <script>
 const ADMIN_USER = 'admin';
 const ADMIN_PASS = '12345678';
-const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
-const CAT_INITIALS = {bovino:'CB',equino:'CE',bones:'BN',avental:'AV',selaria:'SC'};
+const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',acessorios:'Acessórios',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
+const CAT_INITIALS = {bovino:'CB',equino:'CE',acessorios:'AC',bones:'BN',avental:'AV',selaria:'SC'};
 const WPP = '5534988756121';
 
 function getProducts(){

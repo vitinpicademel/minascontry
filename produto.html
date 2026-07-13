@@ -18,7 +18,6 @@
     </div>
     <a href="index.html" class="nav-logo">
       <img src="images/logo.png" alt="Logo" style="height: 48px; width: auto; object-fit: contain;">
-      <div class="nav-logo-text">Minas Country<span>Selaria Premium</span></div>
     </a>
     <div class="nav-search">
       <input type="text" placeholder="O que você está procurando?">
@@ -38,8 +37,14 @@
   <div class="nav-categories">
     <div class="nav-categories-inner">
       <a href="index.html#catalogo">Produtos</a>
-      <a href="index.html#catalogo">Cabresto bovino</a>
-      <a href="index.html#catalogo">Cabresto equino</a>
+      <div class="nav-dropdown" onclick="this.classList.toggle('active')">
+        <span class="nav-dropdown-btn">Cabrestos personalizados ▾</span>
+        <div class="nav-dropdown-content">
+          <a href="index.html#catalogo">Bovino</a>
+          <a href="index.html#catalogo">Equino</a>
+          <a href="index.html#catalogo">Acessórios</a>
+        </div>
+      </div>
       <a href="index.html#catalogo">Bonés personalizados</a>
       <a href="index.html#catalogo">Avental</a>
       <a href="index.html#catalogo">Selaria e cutelaria</a>
@@ -77,8 +82,8 @@
 </footer>
 
 <script>
-const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
-const CAT_INITIALS = {bovino:'CB',equino:'CE',bones:'BN',avental:'AV',selaria:'SC'};
+const CAT_LABELS = {bovino:'Cabresto bovino',equino:'Cabresto equino',acessorios:'Acessórios',bones:'Bonés personalizados',avental:'Avental',selaria:'Selaria e cutelaria'};
+const CAT_INITIALS = {bovino:'CB',equino:'CE',acessorios:'AC',bones:'BN',avental:'AV',selaria:'SC'};
 const WPP = '5534988756121';
 
 function getProducts(){

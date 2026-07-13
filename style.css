@@ -48,17 +48,28 @@ nav{position:fixed;top:0;width:100%;z-index:1000;background:var(--cream);box-sha
 .nav-categories a::after{content:''; position:absolute; bottom:0; left:0; width:0%; height:2px; background:var(--gold); transition:width 0.3s;}
 .nav-categories a:hover{color:var(--gold);}
 .nav-categories a:hover::after{width:100%;}
+.nav-dropdown { position: relative; display: flex; align-items: center; }
+.nav-dropdown-btn { color: var(--cream); font-size: 0.85rem; font-weight: 700; text-transform: uppercase; letter-spacing: 1px; padding: 16px 0; cursor: pointer; transition: color 0.2s; white-space: nowrap; position: relative; }
+.nav-dropdown-btn:hover { color: var(--gold); }
+.nav-dropdown-btn::after { content:''; position:absolute; bottom:0; left:0; width:0%; height:2px; background:var(--gold); transition:width 0.3s; }
+.nav-dropdown-btn:hover::after { width:100%; }
+.nav-dropdown-content { display: none; position: absolute; top: 100%; left: 50%; transform: translateX(-50%); background: var(--wine-dark); min-width: 200px; box-shadow: 0 8px 16px rgba(0,0,0,0.2); z-index: 1001; border-radius: 0 0 8px 8px; border: 1px solid rgba(166,107,50,0.3); border-top: none; }
+.nav-dropdown.active .nav-dropdown-content, .nav-dropdown:hover .nav-dropdown-content { display: flex; flex-direction: column; }
+.nav-dropdown-content a { padding: 12px 20px; display: block; text-align: center; }
+.nav-dropdown-content a::after { display: none; }
 .nav-hamburger{display:none;flex-direction:column;gap:6px;cursor:pointer;padding:5px}
 .nav-hamburger span{width:28px;height:2px;background:var(--wine-dark);transition:0.3s}
 @media(max-width: 1250px) {
   .nav-categories-inner { gap: 1.5rem; padding: 0 1rem; }
-  .nav-categories a { font-size: 0.75rem; letter-spacing: 0.5px; }
+  .nav-categories a, .nav-dropdown-btn { font-size: 0.75rem; letter-spacing: 0.5px; }
 }
 @media(max-width: 991px) { 
   .nav-hamburger{display:flex;} 
   .nav-categories{display:none;} 
   .nav-inner{padding: 1.25rem;} 
   .hero-section-wrapper { margin-top: 88px; min-height: auto; display: block; }
+  .nav-dropdown { flex-direction: column; width: 100%; align-items: center;}
+  .nav-dropdown-content { position: static; transform: none; width: 100%; box-shadow: none; border: none; background: rgba(0,0,0,0.1); border-radius: 8px; margin-top: 5px; }
 }
 @media(max-width: 768px) {
   .hero-carousel{height:45vh;min-height:350px;} 
